@@ -29,10 +29,9 @@
     </style>
 </head>
 <body>
-
 <div class="container">
     <div id="home-screen" class="screen active">
-        <div class="header-card"><h1>Operativo FIFA 26</h1></div>
+        <div class="header-card"><h1>Operativo FIFA 26</h1><p style="font-size: 16px; margin-top:5px;">8 de Junio 2026 | Parque Fundidora</p></div>
         <img src="poster.jpg" alt="Póster" class="poster-img">
         <a href="#" class="main-menu-btn" onclick="showScreen('directory-screen')">Directorio</a>
         <a href="#" class="main-menu-btn" onclick="showScreen('deployment-screen')">Despliegue</a>
@@ -70,87 +69,71 @@
     </div>
 
     <div id="deployment-screen" class="screen">
-        <div style="padding: 10px;">
-            <a href="#" class="back-btn" onclick="showScreen('home-screen')">Volver al Inicio</a>
-            <a href="#" class="area-btn" data-name="CENTRO DE MANDO" data-pdf="CENTRO_DE_MANDO.pdf" data-mando="1" data-fc="11" data-total="12" data-mando-name="J. RUIZ FELIX" onclick="showDetail(this)">Centro de Mando</a>
-            <a href="#" class="area-btn" data-name="UCM" data-pdf="UCM.pdf" data-mando="1" data-fc="100" data-total="121" data-mando-name="FIDEL DIAZ RUIZ" onclick="showDetail(this)">UCM</a>
-            <a href="#" class="area-btn" data-name="TECNOLOGÍA" data-pdf="TECNOLOGIA.pdf" data-mando="1" data-fc="6" data-total="7" data-mando-name="BENJAMÍN LÓPEZ" onclick="showDetail(this)">Tecnología</a>
-            <a href="#" class="area-btn" data-name="ESCENARIO" data-pdf="ESCENARIO.pdf" data-mando="1" data-fc="0" data-total="36" data-mando-name="DAVID QUIJAS" onclick="showDetail(this)">Escenario</a>
-            <a href="#" class="area-btn" data-name="CAMERINOS" data-pdf="CAMERINOS.pdf" data-mando="1" data-fc="0" data-total="11" data-mando-name="LUIS GARCIA" onclick="showDetail(this)">Camerinos</a>
-            <a href="#" class="area-btn" data-name="VIP" data-pdf="VIP.pdf" data-mando="1" data-fc="0" data-total="11" data-mando-name="SOFIA ROBLES" onclick="showDetail(this)">VIP</a>
-            <a href="#" class="area-btn" data-name="PREFERENCIAL" data-pdf="PREFERENCIAL.pdf" data-mando="1" data-fc="0" data-total="16" data-mando-name="JUAN SANTA CRUZ" onclick="showDetail(this)">Preferencial</a>
-            <a href="#" class="area-btn" data-name="GENERAL" data-pdf="GENERAL.pdf" data-mando="2" data-fc="0" data-total="37" data-mando-name="LILIANA RAMOS" onclick="showDetail(this)">General</a>
-            <a href="#" class="area-btn" data-name="PERIMETRAL NORTE" data-pdf="PERIMETRAL_NORTE.pdf" data-mando="2" data-fc="0" data-total="37" data-mando-name="ENRIQUE GALVÁN" onclick="showDetail(this)">Perimetral Norte</a>
-            <a href="#" class="area-btn" data-name="PERIMETRAL SUR" data-pdf="PERIMETRAL_SUR.pdf" data-mando="2" data-fc="0" data-total="37" data-mando-name="JENNY MORAN" onclick="showDetail(this)">Perimetral Sur</a>
-            <a href="#" class="area-btn" data-name="ACCESO 4" data-pdf="acceso_4.pdf" data-mando="1" data-fc="0" data-total="21" data-mando-name="JORGE CARRILLO" onclick="showDetail(this)">Acceso 4</a>
-            <a href="#" class="area-btn" data-name="ACCESO PISTA" data-pdf="acceso_pista.pdf" data-mando="1" data-fc="0" data-total="21" data-mando-name="MAURICIO MOLINA" onclick="showDetail(this)">Acceso Pista</a>
-            <a href="#" class="area-btn" data-name="ACCESO 3 ARENA" data-pdf="acceso_3.pdf" data-mando="1" data-fc="0" data-total="11" data-mando-name="JUAN CARLOS DÍAZ" onclick="showDetail(this)">Acceso 3 Arena</a>
-            <a href="#" class="area-btn" data-name="PERIFERIA" data-pdf="periferia.pdf" data-mando="1" data-fc="25" data-total="31" data-mando-name="HUGO SÁNCHEZ" onclick="showDetail(this)">Periferia</a>
-            <a href="#" class="area-btn" data-name="ACCESO 5" data-pdf="acceso_5.pdf" data-mando="1" data-fc="0" data-total="11" data-mando-name="JAIME ORTIZ" onclick="showDetail(this)">Acceso 5</a>
-            <a href="#" class="area-btn" data-name="BINOMIOS" data-pdf="binomios_santa_lucia.pdf" data-mando="1" data-fc="0" data-total="46" data-mando-name="AARON TREJO" onclick="showDetail(this)">Binomios Santa Lucia</a>
-        </div>
+    <div style="padding: 10px;">
+        <a href="#" class="back-btn" onclick="showScreen('home-screen')">Volver al Inicio</a>
+        <a href="#" class="area-btn" style="background:#264653;" data-name="CENTRO DE MANDO" data-map="centro_de_mando.jpg" data-pdf="CENTRO_DE_MANDO.pdf" data-mando="1" data-fc="11" data-cadetes="0" data-gae="0" data-crp="0" data-total="12" data-mando-name="J. RUIZ FELIX" onclick="showDetail(this)">Centro de Mando</a>
+        <a href="#" class="area-btn" style="background:#2a9d8f;" data-name="UCM" data-map="centro_de_mando.jpg" data-pdf="UCM.pdf" data-mando="1" data-fc="100" data-cadetes="20" data-gae="0" data-crp="0" data-total="121" data-mando-name="FIDEL DIAZ RUIZ" onclick="showDetail(this)">UCM</a>
+        <a href="#" class="area-btn" style="background:#e9c46a; color:#000;" data-name="TECNOLOGÍA" data-map="centro_de_mando.jpg" data-pdf="TECNOLOGIA.pdf" data-mando="1" data-fc="6" data-cadetes="0" data-gae="0" data-crp="0" data-total="7" data-mando-name="BENJAMÍN LÓPEZ" onclick="showDetail(this)">Tecnología</a>
+        <a href="#" class="area-btn" style="background:#f4a261;" data-name="ESCENARIO" data-map="escenario.jpg" data-pdf="ESCENARIO.pdf" data-mando="1" data-fc="0" data-cadetes="35" data-gae="0" data-crp="0" data-total="36" data-mando-name="DAVID QUIJAS" onclick="showDetail(this)">Escenario</a>
+        <a href="#" class="area-btn" style="background:#e76f51;" data-name="CAMERINOS" data-map="escenario.jpg" data-pdf="CAMERINOS.pdf" data-mando="1" data-fc="0" data-cadetes="5" data-gae="5" data-crp="0" data-total="11" data-mando-name="LUIS GARCIA" onclick="showDetail(this)">Camerinos</a>
+        <a href="#" class="area-btn" style="background:#6b705c;" data-name="VIP" data-map="zonas_generales.jpg" data-pdf="VIP.pdf" data-mando="1" data-fc="0" data-cadetes="5" data-gae="5" data-crp="0" data-total="11" data-mando-name="SOFIA ROBLES" onclick="showDetail(this)">VIP</a>
+        <a href="#" class="area-btn" style="background:#a5a58d; color:#000;" data-name="PREFERENCIAL" data-map="zonas_generales.jpg" data-pdf="PREFERENCIAL.pdf" data-mando="1" data-fc="0" data-cadetes="10" data-gae="5" data-crp="0" data-total="16" data-mando-name="JUAN SANTA CRUZ" onclick="showDetail(this)">Preferencial</a>
+        <a href="#" class="area-btn" style="background:#b7094c;" data-name="GENERAL" data-map="zonas_generales.jpg" data-pdf="GENERAL.pdf" data-mando="2" data-fc="0" data-cadetes="35" data-gae="0" data-crp="0" data-total="37" data-mando-name="LILIANA RAMOS" onclick="showDetail(this)">General</a>
+        <a href="#" class="area-btn" style="background:#a01a58;" data-name="PERIMETRAL NORTE" data-map="perimetral_norte.jpg" data-pdf="PERIMETRAL_NORTE.pdf" data-mando="2" data-fc="0" data-cadetes="35" data-gae="0" data-crp="0" data-total="37" data-mando-name="ENRIQUE GALVÁN" onclick="showDetail(this)">Perimetral Norte</a>
+        <a href="#" class="area-btn" style="background:#892b64;" data-name="PERIMETRAL SUR" data-map="perimetral_sur.jpg" data-pdf="PERIMETRAL_SUR.pdf" data-mando="2" data-fc="0" data-cadetes="35" data-gae="0" data-crp="0" data-total="37" data-mando-name="JENNY MORAN" onclick="showDetail(this)">Perimetral Sur</a>
+        <a href="#" class="area-btn" style="background:#723c70;" data-name="ACCESO 4" data-map="accesos_evento.jpg" data-pdf="acceso_4.pdf" data-mando="1" data-fc="0" data-cadetes="10" data-gae="10" data-crp="0" data-total="21" data-mando-name="JORGE CARRILLO" onclick="showDetail(this)">Acceso 4</a>
+        <a href="#" class="area-btn" style="background:#5c4d7d;" data-name="ACCESO PISTA" data-map="accesos_evento.jpg" data-pdf="acceso_pista.pdf" data-mando="1" data-fc="0" data-cadetes="10" data-gae="10" data-crp="0" data-total="21" data-mando-name="MAURICIO MOLINA" onclick="showDetail(this)">Acceso Pista</a>
+        <a href="#" class="area-btn" style="background:#455e89;" data-name="ACCESO 3 ARENA" data-map="accesos_evento.jpg" data-pdf="acceso_3.pdf" data-mando="1" data-fc="0" data-cadetes="10" data-gae="0" data-crp="0" data-total="11" data-mando-name="JUAN CARLOS DÍAZ" onclick="showDetail(this)">Acceso 3 Arena</a>
+        <a href="#" class="area-btn" style="background:#2e6f95;" data-name="PERIFERIA" data-map="periferia.jpg" data-pdf="periferia.pdf" data-mando="1" data-fc="25" data-cadetes="0" data-gae="0" data-crp="5" data-total="31" data-mando-name="HUGO SÁNCHEZ" onclick="showDetail(this)">Periferia</a>
+        <a href="#" class="area-btn" style="background:#1780a1;" data-name="ACCESO 5" data-map="acceso_5.jpg" data-pdf="acceso_5.pdf" data-mando="1" data-fc="0" data-cadetes="5" data-gae="5" data-crp="0" data-total="11" data-mando-name="JAIME ORTIZ" onclick="showDetail(this)">Acceso 5</a>
+        <a href="#" class="area-btn" style="background:#0091ad;" data-name="BINOMIOS" data-map="paseo_santa_lucia.jpg" data-pdf="binomios_santa_lucia.pdf" data-mando="1" data-fc="0" data-cadetes="35" data-gae="10" data-crp="0" data-total="46" data-mando-name="AARON TREJO" onclick="showDetail(this)">Binomios Santa Lucia</a>
     </div>
+</div>
 
     <div id="detail-screen" class="screen">
         <div class="detail-card">
-            <h2 id="zone-title" style="color:#c5a059;"></h2>
-            <h3 style="font-size: 12px; margin-top: 15px;">Elementos Asignados:</h3>
-            <ul id="lista-elementos" style="list-style: none; font-size: 11px; max-height: 120px; overflow-y: auto; background: #000; padding: 10px; border-radius: 5px; color: #fff;"></ul>
+            <img id="zone-map" src="" style="width:100%; border-radius:5px; display:none;">
+            <div id="zone-title" style="font-weight:bold; color:#c5a059; margin-top:10px;"></div>
+            <div style="font-size:11px; margin-top:5px;">Mando: <strong id="v-mando-name"></strong></div>
             <table class="details-table">
-                <tr><th>Mando</th><th>FC</th><th>Total</th></tr>
-                <tr><td id="v-mando">-</td><td id="v-fc">-</td><td id="v-total">-</td></tr>
+                <tr><th>Mando</th><th>FC</th><th>Cadetes</th><th>GAE</th><th>CRP</th><th>Total</th></tr>
+                <tr><td id="v-mando">-</td><td id="v-fc">-</td><td id="v-cadetes">-</td><td id="v-gae">-</td><td id="v-crp">-</td><td id="v-total">-</td></tr>
             </table>
-            <a id="btn-pdf" href="#" class="main-menu-btn" target="_blank">Ver PDF Completo ↓</a>
+            <a id="btn-pdf" class="main-menu-btn"style="background:#c5a059; color:#000; margin-top:15px; display:flex; justify-content:center; align-items:center; gap:10px;" href="" download>Elementos Asignados ↓</a>
             <a href="#" class="back-btn" onclick="showScreen('deployment-screen')">Regresar a Zonas</a>
         </div>
     </div>
 </div>
 
-<script>
-    const datosPersonal = {
-        "CENTRO_DE_MANDO.pdf": ["J. RUIZ FELIX", "JORGE PELLEGRIN", "MARIO APARICIO", "DAVID LOZANO"],
-        "UCM.pdf": ["FIDEL DIAZ RUIZ", "RAMIREZ NICOLAS"],
-        "TECNOLOGIA.pdf": ["BENJAMÍN LÓPEZ"],
-        "ESCENARIO.pdf": ["AGUSTIN RONQUILLO", "ALONSO MARTINEZ", "ANAYA NICANDRO", "BARRIOS MONZON", "BAUTISTA HERNANDEZ"],
-        "CAMERINOS.pdf": ["LUIS GARCIA"],
-        "VIP.pdf": ["SOFIA ROBLES"],
-        "PREFERENCIAL.pdf": ["JUAN SANTA CRUZ"],
-        "GENERAL.pdf": ["LILIANA RAMOS", "JESÚS AGUILAR"],
-        "PERIMETRAL_NORTE.pdf": ["ENRIQUE GALVÁN", "CINDY RODRÍGUEZ"],
-        "PERIMETRAL_SUR.pdf": ["JENNY MORAN", "BRAYAN LÓPEZ"],
-        "acceso_4.pdf": ["JORGE CARRILLO"],
-        "acceso_pista.pdf": ["MAURICIO MOLINA"],
-        "acceso_3.pdf": ["JUAN CARLOS DÍAZ"],
-        "periferia.pdf": ["HUGO SÁNCHEZ"],
-        "acceso_5.pdf": ["JAIME ORTIZ"],
-        "binomios_santa_lucia.pdf": ["AARON TREJO"]
-    };
-
+    <script>
     function showScreen(id) { 
         document.querySelectorAll('.screen').forEach(s => s.classList.remove('active')); 
         document.getElementById(id).classList.add('active'); 
+        window.scrollTo(0,0); 
     }
-
     function showDetail(el) {
-        document.getElementById('zone-title').innerText = el.getAttribute('data-name');
-        document.getElementById('v-mando').innerText = el.getAttribute('data-mando');
-        document.getElementById('v-fc').innerText = el.getAttribute('data-fc');
-        document.getElementById('v-total').innerText = el.getAttribute('data-total');
-        
-        let archivo = el.getAttribute('data-pdf');
-        document.getElementById('btn-pdf').href = archivo;
-
-        let lista = document.getElementById('lista-elementos');
-        lista.innerHTML = "";
-        
-        if (datosPersonal[archivo]) {
-            datosPersonal[archivo].forEach(nombre => {
-                let li = document.createElement('li');
-                li.innerHTML = "• " + nombre;
-                lista.appendChild(li);
-            });
-        }
-        showScreen('detail-screen');
+    document.getElementById('zone-title').innerText = el.getAttribute('data-name');
+    document.getElementById('v-mando-name').innerText = el.getAttribute('data-mando-name');
+    document.getElementById('v-mando').innerText = el.getAttribute('data-mando');
+    document.getElementById('v-fc').innerText = el.getAttribute('data-fc');
+    document.getElementById('v-cadetes').innerText = el.getAttribute('data-cadetes');
+    document.getElementById('v-gae').innerText = el.getAttribute('data-gae');
+    document.getElementById('v-crp').innerText = el.getAttribute('data-crp');
+    document.getElementById('v-total').innerText = el.getAttribute('data-total');
+    
+    let m = document.getElementById('zone-map');
+    m.src = el.getAttribute('data-map');
+    m.style.display = 'block';
+    
+    // AQUÍ ESTÁ EL TRUCO PARA EL PDF
+    let btn = document.getElementById('btn-pdf');
+    let rutaPdf = el.getAttribute('data-pdf');
+    
+    // Forzamos el atributo download y asignamos la ruta correctamente
+    btn.setAttribute('href', rutaPdf);
+    btn.setAttribute('download', rutaPdf); 
+    
+    showScreen('detail-screen');
     }
 </script>
 </body>
