@@ -31,25 +31,38 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
             border: 1px solid #c5a059;
             margin-bottom: 30px;
-            position: relative; /* Para los botones flotantes */
+            position: relative; 
         }
 
-        /* Carátula Superior */
+        /* Carátula Superior Actualizada con Imagen */
         .header-card {
             background-color: #000000;
-            padding: 30px 20px;
+            padding: 25px 20px;
             text-align: center;
             border-bottom: 3px solid #c5a059;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .header-card h1 {
             color: #c5a059;
-            font-size: 22px;
+            font-size: 20px;
             letter-spacing: 2px;
             margin-bottom: 15px;
             text-transform: uppercase;
             font-weight: 800;
             text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+        }
+
+        /* Contenedor de la imagen del póster */
+        .poster-img {
+            width: 120px;
+            height: auto;
+            border-radius: 8px;
+            border: 2px solid #c5a059;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 8px rgba(197, 160, 89, 0.3);
         }
 
         .info-row {
@@ -62,14 +75,6 @@
             color: #c5a059;
         }
 
-        .artistas-box {
-            margin-top: 15px;
-            padding: 10px;
-            background: rgba(197, 160, 89, 0.1);
-            border: 1px dashed #c5a059;
-            border-radius: 8px;
-        }
-
         .content-section {
             padding: 25px 20px;
             position: relative;
@@ -80,18 +85,16 @@
             font-size: 18px;
             text-transform: uppercase;
             margin-bottom: 20px;
-            text-align: left; /* Acomodado a la izquierda para dar espacio al botón flotante */
+            text-align: left;
             letter-spacing: 1px;
             border-bottom: 1px solid rgba(197, 160, 89, 0.3);
             padding-bottom: 10px;
             width: 70%;
         }
 
-        /* Pantallas */
         .screen { display: none; }
         .screen.active { display: block; }
 
-        /* Botón Flotante Superior de Regreso */
         .floating-back-btn {
             position: absolute;
             top: 20px;
@@ -108,7 +111,7 @@
             z-index: 100;
         }
 
-        /* Botones del Menú Principal */
+        /* Botones del Menú Principal (Plateados con borde dorado) */
         .main-menu-btn {
             display: flex;
             align-items: center;
@@ -121,17 +124,17 @@
             font-weight: 800;
             text-transform: uppercase;
             text-decoration: none;
-            color: #000;
+            color: #1f2833;
             text-align: center;
             box-shadow: 0 6px 12px rgba(0,0,0,0.3);
             touch-action: manipulation;
             -webkit-tap-highlight-color: transparent;
+            
+            /* Nuevos estilos */
+            background: linear-gradient(135deg, #e0e0e0 0%, #b0c4de 100%);
+            border: 2px solid #c5a059; /* Borde dorado */
         }
 
-        .btn-directorio { background-color: #a9b0b8; color: #000000; } /* Plateado oscuro inicial */
-        .btn-despliegue { background-color: #c5a059; color: #000000; }
-
-        /* Botones de Zonas (Pantalla Despliegue) */
         .area-btn {
             width: 100%;
             padding: 14px;
@@ -161,7 +164,6 @@
             pointer-events: none;
         }
 
-        /* Colores de Botones Zonas */
         .btn-1 { background-color: #264653; }
         .btn-2 { background-color: #2a9d8f; }
         .btn-3 { background-color: #e9c46a; color: #000; }
@@ -182,21 +184,18 @@
         .btn-15 { background-color: #1780a1; }
         .btn-16 { background-color: #0091ad; }
 
-        /* Lista de Directorio Compacta */
         .dir-item {
             background: #11141a;
-            padding: 10px 12px; /* Reducido para hacerlos más delgados */
+            padding: 10px 12px;
             border-radius: 6px;
-            margin-bottom: 8px; /* Menor espacio entre ellos */
-            border-left: 3px solid #c0c0c0; /* Borde plateado */
+            margin-bottom: 8px;
+            border-left: 3px solid #c0c0c0;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
         
-        .dir-info {
-            width: 75%;
-        }
+        .dir-info { width: 75%; }
 
         .dir-info strong {
             display: block;
@@ -213,7 +212,6 @@
             line-height: 1.2;
         }
 
-        /* Botón WA Plateado */
         .wa-btn {
             background: linear-gradient(135deg, #e0e0e0 0%, #b0c4de 100%);
             color: #1f2833;
@@ -227,7 +225,6 @@
             border: 1px solid #a0b0c0;
         }
 
-        /* Detalle Dinámico */
         .detail-card {
             background: #11141a;
             border-radius: 10px;
@@ -309,7 +306,6 @@
             margin-bottom: 10px;
         }
 
-        /* Resumen Total general */
         .total-general-card {
             background: #c5a059;
             color: #000000;
@@ -354,23 +350,21 @@
 
     <div class="container">
         <div class="header-card">
+            <img src="poster.jpg" alt="Póster Oficial J Balvin" class="poster-img">
+            
             <h1>Clausura del Tour del<br>Trofeo Copa Mundial</h1>
             <div class="info-row"><strong>Fecha:</strong> 8 de Junio de 2026</div>
             <div class="info-row"><strong>Lugar:</strong> Parque Fundidora, Monterrey NL</div>
-            <div class="artistas-box">
-                <div class="info-row" style="margin:0;"><strong>Artistas Invitados:</strong></div>
-                <div class="info-row" style="margin:5px 0 0 0; font-weight: 600; color:#fff;">J Balvin • Pedro Sampaio • Amber Mark</div>
-            </div>
         </div>
 
         <div id="home-screen" class="screen active">
             <div class="content-section">
                 
-                <a href="#" class="main-menu-btn btn-directorio" onclick="showScreen('directory-screen'); return false;">
+                <a href="#" class="main-menu-btn" onclick="showScreen('directory-screen'); return false;">
                     Directorio de Mandos
                 </a>
                 
-                <a href="#" class="main-menu-btn btn-despliegue" onclick="showScreen('deployment-screen'); return false;">
+                <a href="#" class="main-menu-btn" onclick="showScreen('deployment-screen'); return false;">
                     Despliegue de Zonas
                 </a>
 
@@ -398,7 +392,6 @@
                     </div>
                     <a href="https://wa.me/528120657242" target="_blank" class="wa-btn">WA</a>
                 </div>
-
                 <div class="dir-item">
                     <div class="dir-info">
                         <strong>Luis Antonio Garcias Suárez</strong>
@@ -406,7 +399,6 @@
                     </div>
                     <a href="https://wa.me/526145140975" target="_blank" class="wa-btn">WA</a>
                 </div>
-
                 <div class="dir-item">
                     <div class="dir-info">
                         <strong>Jorge Alberto Carrillo Cardenas</strong>
@@ -414,7 +406,6 @@
                     </div>
                     <a href="https://wa.me/528113418418" target="_blank" class="wa-btn">WA</a>
                 </div>
-
                 <div class="dir-item">
                     <div class="dir-info">
                         <strong>Enrique Galván Galindo</strong>
@@ -422,7 +413,6 @@
                     </div>
                     <a href="https://wa.me/528123424354" target="_blank" class="wa-btn">WA</a>
                 </div>
-
                 <div class="dir-item">
                     <div class="dir-info">
                         <strong>Fidel Diaz Ruiz</strong>
@@ -430,7 +420,6 @@
                     </div>
                     <a href="https://wa.me/528131030940" target="_blank" class="wa-btn">WA</a>
                 </div>
-
                 <div class="dir-item">
                     <div class="dir-info">
                         <strong>Liliana Ramos de la Cruz</strong>
@@ -438,7 +427,6 @@
                     </div>
                     <a href="https://wa.me/528124666244" target="_blank" class="wa-btn">WA</a>
                 </div>
-
                 <div class="dir-item">
                     <div class="dir-info">
                         <strong>Sofia Sacnite Robles Valtierra</strong>
@@ -446,7 +434,6 @@
                     </div>
                     <a href="https://wa.me/528120748769" target="_blank" class="wa-btn">WA</a>
                 </div>
-
                 <div class="dir-item">
                     <div class="dir-info">
                         <strong>David Orlando Quijas López</strong>
@@ -454,7 +441,6 @@
                     </div>
                     <a href="https://wa.me/528120748769" target="_blank" class="wa-btn">WA</a>
                 </div>
-
                 <div class="dir-item">
                     <div class="dir-info">
                         <strong>Juan Gabriel Santa Cruz Ruiz</strong>
@@ -462,7 +448,6 @@
                     </div>
                     <a href="https://wa.me/528118171844" target="_blank" class="wa-btn">WA</a>
                 </div>
-
                 <div class="dir-item">
                     <div class="dir-info">
                         <strong>Jesús Arturo Aguilar Evia</strong>
@@ -470,7 +455,6 @@
                     </div>
                     <a href="https://wa.me/528147899950" target="_blank" class="wa-btn">WA</a>
                 </div>
-
                 <div class="dir-item">
                     <div class="dir-info">
                         <strong>Juan Carlos Díaz Jiménez</strong>
@@ -478,7 +462,6 @@
                     </div>
                     <a href="https://wa.me/525512782989" target="_blank" class="wa-btn">WA</a>
                 </div>
-
                 <div class="dir-item">
                     <div class="dir-info">
                         <strong>Cindy Hannaly Rodríguez Rodríguez</strong>
@@ -486,7 +469,6 @@
                     </div>
                     <a href="https://wa.me/528123929960" target="_blank" class="wa-btn">WA</a>
                 </div>
-
                 <div class="dir-item">
                     <div class="dir-info">
                         <strong>Jenny Aurora Moran Rodríguez</strong>
@@ -494,7 +476,6 @@
                     </div>
                     <a href="https://wa.me/528111973526" target="_blank" class="wa-btn">WA</a>
                 </div>
-
                 <div class="dir-item">
                     <div class="dir-info">
                         <strong>Aaron Ernan Trejo Guerrero</strong>
@@ -502,7 +483,6 @@
                     </div>
                     <a href="https://wa.me/528131789571" target="_blank" class="wa-btn">WA</a>
                 </div>
-
                 <div class="dir-item">
                     <div class="dir-info">
                         <strong>Mauricio Molina Muñoz</strong>
@@ -510,7 +490,6 @@
                     </div>
                     <a href="https://wa.me/528688351543" target="_blank" class="wa-btn">WA</a>
                 </div>
-
                 <div class="dir-item">
                     <div class="dir-info">
                         <strong>Jaime Ortiz Macias</strong>
@@ -518,7 +497,6 @@
                     </div>
                     <a href="https://wa.me/528132720687" target="_blank" class="wa-btn">WA</a>
                 </div>
-
                 <div class="dir-item">
                     <div class="dir-info">
                         <strong>Brayan Francisco López Rojas</strong>
@@ -526,7 +504,6 @@
                     </div>
                     <a href="https://wa.me/528113726616" target="_blank" class="wa-btn">WA</a>
                 </div>
-
                 <div class="dir-item">
                     <div class="dir-info">
                         <strong>Hugo Ismael Sánchez Hernández</strong>
@@ -534,7 +511,6 @@
                     </div>
                     <a href="https://wa.me/528145357951" target="_blank" class="wa-btn">WA</a>
                 </div>
-
                 <div class="dir-item">
                     <div class="dir-info">
                         <strong>Jorge Pellegrin López</strong>
@@ -542,7 +518,6 @@
                     </div>
                     <a href="https://wa.me/528138931115" target="_blank" class="wa-btn">WA</a>
                 </div>
-
                 <div class="dir-item">
                     <div class="dir-info">
                         <strong>Mario Alberto Aparicio Cortez</strong>
@@ -550,7 +525,6 @@
                     </div>
                     <a href="https://wa.me/528135531205" target="_blank" class="wa-btn">WA</a>
                 </div>
-
                 <div class="dir-item">
                     <div class="dir-info">
                         <strong>David Alberto Lozano Cordova</strong>
@@ -668,7 +642,6 @@
     </div>
 
     <script>
-        // Función general para cambiar entre pantallas
         function showScreen(screenId) {
             document.querySelectorAll('.screen').forEach(function(el) {
                 el.classList.remove('active');
@@ -678,8 +651,6 @@
         }
 
         document.addEventListener('DOMContentLoaded', function() {
-            
-            // Inyectar datos al seleccionar una zona
             var botonesZona = document.querySelectorAll('.area-btn');
             
             botonesZona.forEach(function(boton) {
@@ -699,7 +670,6 @@
                 });
             });
 
-            // Botones de regreso de Detalle a Despliegue
             document.getElementById('btn-back-to-deployment').addEventListener('click', function(e) {
                 e.preventDefault();
                 showScreen('deployment-screen');
