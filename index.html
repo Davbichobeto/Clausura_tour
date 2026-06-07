@@ -31,29 +31,30 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
             border: 1px solid #c5a059;
             margin-bottom: 30px;
+            position: relative; /* Para los botones flotantes */
         }
 
         /* Carátula Superior */
         .header-card {
             background-color: #000000;
-            padding: 40px 20px;
+            padding: 30px 20px;
             text-align: center;
             border-bottom: 3px solid #c5a059;
         }
 
         .header-card h1 {
             color: #c5a059;
-            font-size: 24px;
+            font-size: 22px;
             letter-spacing: 2px;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             text-transform: uppercase;
             font-weight: 800;
             text-shadow: 0 2px 4px rgba(0,0,0,0.8);
         }
 
         .info-row {
-            margin: 8px 0;
-            font-size: 14px;
+            margin: 5px 0;
+            font-size: 13px;
             color: #e5e5e5;
         }
 
@@ -71,6 +72,7 @@
 
         .content-section {
             padding: 25px 20px;
+            position: relative;
         }
 
         .section-title {
@@ -78,15 +80,33 @@
             font-size: 18px;
             text-transform: uppercase;
             margin-bottom: 20px;
-            text-align: center;
+            text-align: left; /* Acomodado a la izquierda para dar espacio al botón flotante */
             letter-spacing: 1px;
             border-bottom: 1px solid rgba(197, 160, 89, 0.3);
             padding-bottom: 10px;
+            width: 70%;
         }
 
         /* Pantallas */
         .screen { display: none; }
         .screen.active { display: block; }
+
+        /* Botón Flotante Superior de Regreso */
+        .floating-back-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #455e89;
+            color: #ffffff;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+            text-decoration: none;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+            z-index: 100;
+        }
 
         /* Botones del Menú Principal */
         .main-menu-btn {
@@ -108,24 +128,24 @@
             -webkit-tap-highlight-color: transparent;
         }
 
-        .btn-directorio { background-color: #25D366; color: #ffffff; }
+        .btn-directorio { background-color: #a9b0b8; color: #000000; } /* Plateado oscuro inicial */
         .btn-despliegue { background-color: #c5a059; color: #000000; }
 
         /* Botones de Zonas (Pantalla Despliegue) */
         .area-btn {
             width: 100%;
-            padding: 16px;
+            padding: 14px;
             text-align: left;
             border: none;
             color: white;
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 700;
             cursor: pointer;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 12px;
-            border-radius: 8px;
+            margin-bottom: 10px;
+            border-radius: 6px;
             text-transform: uppercase;
             box-shadow: 0 4px 6px rgba(0,0,0,0.2);
             text-decoration: none;
@@ -135,9 +155,9 @@
 
         .area-btn .total-badge {
             background: rgba(255, 255, 255, 0.2);
-            padding: 4px 10px;
+            padding: 3px 8px;
             border-radius: 20px;
-            font-size: 12px;
+            font-size: 11px;
             pointer-events: none;
         }
 
@@ -162,42 +182,49 @@
         .btn-15 { background-color: #1780a1; }
         .btn-16 { background-color: #0091ad; }
 
-        /* Lista de Directorio */
+        /* Lista de Directorio Compacta */
         .dir-item {
             background: #11141a;
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 12px;
-            border-left: 3px solid #25D366;
+            padding: 10px 12px; /* Reducido para hacerlos más delgados */
+            border-radius: 6px;
+            margin-bottom: 8px; /* Menor espacio entre ellos */
+            border-left: 3px solid #c0c0c0; /* Borde plateado */
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
         
+        .dir-info {
+            width: 75%;
+        }
+
         .dir-info strong {
             display: block;
             color: #ffffff;
-            font-size: 13px;
-            margin-bottom: 4px;
+            font-size: 12px;
+            margin-bottom: 2px;
             text-transform: uppercase;
-        }
-        .dir-info span {
-            color: #8892b0;
-            font-size: 11px;
-            text-transform: uppercase;
-            line-height: 1.4;
         }
 
-        .wa-btn {
-            background: #25D366;
-            color: white;
-            padding: 10px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-size: 12px;
-            font-weight: bold;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        .dir-info span {
+            color: #8892b0;
+            font-size: 10px;
             text-transform: uppercase;
+            line-height: 1.2;
+        }
+
+        /* Botón WA Plateado */
+        .wa-btn {
+            background: linear-gradient(135deg, #e0e0e0 0%, #b0c4de 100%);
+            color: #1f2833;
+            padding: 6px 10px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 11px;
+            font-weight: 800;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.4);
+            text-transform: uppercase;
+            border: 1px solid #a0b0c0;
         }
 
         /* Detalle Dinámico */
@@ -206,12 +233,13 @@
             border-radius: 10px;
             padding: 20px;
             border: 1px solid rgba(197, 160, 89, 0.2);
-            margin-bottom: 25px;
+            margin-bottom: 20px;
+            margin-top: 15px;
         }
 
         .detail-zone-title {
             color: #c5a059;
-            font-size: 20px;
+            font-size: 18px;
             text-transform: uppercase;
             font-weight: 800;
             margin-bottom: 15px;
@@ -222,24 +250,24 @@
 
         .mando-responsable {
             background: #1f2833;
-            padding: 12px;
+            padding: 10px;
             border-radius: 6px;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             text-align: center;
             border-left: 3px solid #c5a059;
         }
 
         .mando-responsable span {
             display: block;
-            font-size: 11px;
+            font-size: 10px;
             color: #8892b0;
             text-transform: uppercase;
-            margin-bottom: 6px;
+            margin-bottom: 4px;
         }
 
         .mando-responsable strong {
             color: #ffffff;
-            font-size: 13px;
+            font-size: 12px;
             display: block;
         }
 
@@ -248,32 +276,32 @@
             border-collapse: collapse;
             font-size: 14px;
             color: #cbd5e1;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         .details-table th, .details-table td {
-            padding: 12px 8px;
+            padding: 10px 6px;
             text-align: center;
             border-bottom: 1px solid #1f2833;
         }
 
         .details-table th {
             color: #c5a059;
-            font-size: 11px;
+            font-size: 10px;
             background-color: #161b22;
         }
 
-        .details-table td { font-weight: bold; font-size: 16px; }
+        .details-table td { font-weight: bold; font-size: 15px; }
 
-        .back-btn {
+        .back-btn-large {
             display: block;
             width: 100%;
-            padding: 15px;
+            padding: 12px;
             background-color: #455e89;
             color: #ffffff;
             text-align: center;
-            border-radius: 8px;
-            font-size: 14px;
+            border-radius: 6px;
+            font-size: 13px;
             font-weight: 800;
             text-transform: uppercase;
             text-decoration: none;
@@ -286,10 +314,10 @@
             background: #c5a059;
             color: #000000;
             width: 100%;
-            padding: 15px;
+            padding: 12px;
             text-align: center;
             font-weight: 800;
-            font-size: 16px;
+            font-size: 14px;
             text-transform: uppercase;
             margin-top: 15px;
         }
@@ -297,15 +325,15 @@
         .total-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
+            gap: 8px;
             background: #161b22;
-            padding: 15px;
+            padding: 12px;
             border-top: 2px solid #c5a059;
         }
 
         .total-box {
             text-align: center;
-            padding: 8px;
+            padding: 6px;
             background: #1f2833;
             border-radius: 6px;
             border: 1px solid rgba(197, 160, 89, 0.2);
@@ -313,13 +341,13 @@
 
         .total-box span {
             display: block;
-            font-size: 11px;
+            font-size: 10px;
             color: #8892b0;
             text-transform: uppercase;
-            margin-bottom: 4px;
+            margin-bottom: 3px;
         }
 
-        .total-box strong { font-size: 16px; color: #c5a059; }
+        .total-box strong { font-size: 15px; color: #c5a059; }
     </style>
 </head>
 <body>
@@ -360,141 +388,9 @@
 
         <div id="directory-screen" class="screen">
             <div class="content-section">
-                <div class="section-title">Contactos Operativos</div>
+                <div class="section-title">Directorio</div>
+                <a href="#" class="floating-back-btn" onclick="showScreen('home-screen'); return false;">← Volver</a>
                 
-                <div class="dir-item">
-                    <div class="dir-info">
-                        <strong>Liliana Ramos de la Cruz</strong>
-                        <span>Oficial • Sección V</span>
-                    </div>
-                    <a href="https://wa.me/528124666244" target="_blank" class="wa-btn">WA</a>
-                </div>
-                <div class="dir-item">
-                    <div class="dir-info">
-                        <strong>Luis Antonio Garcias Suárez</strong>
-                        <span>Oficial • Almacen de Armamento y Municiones</span>
-                    </div>
-                    <a href="https://wa.me/526145140975" target="_blank" class="wa-btn">WA</a>
-                </div>
-                <div class="dir-item">
-                    <div class="dir-info">
-                        <strong>Sofia Sacnite Robles Valtierra</strong>
-                        <span>Suboficial • Búsqueda de Personas</span>
-                    </div>
-                    <a href="https://wa.me/528120748769" target="_blank" class="wa-btn">WA</a>
-                </div>
-                <div class="dir-item">
-                    <div class="dir-info">
-                        <strong>Jorge Alberto Carrillo Cardenas</strong>
-                        <span>Oficial • A disposición de I.G.A.I.</span>
-                    </div>
-                    <a href="https://wa.me/528113418418" target="_blank" class="wa-btn">WA</a>
-                </div>
-                <div class="dir-item">
-                    <div class="dir-info">
-                        <strong>David Orlando Quijas López</strong>
-                        <span>Suboficial • A disposición de I.G.A.I.</span>
-                    </div>
-                    <a href="https://wa.me/528120748769" target="_blank" class="wa-btn">WA</a>
-                </div>
-                <div class="dir-item">
-                    <div class="dir-info">
-                        <strong>Juan Gabriel Santa Cruz Ruiz</strong>
-                        <span>Suboficial • A disposición de Sección I</span>
-                    </div>
-                    <a href="https://wa.me/528118171844" target="_blank" class="wa-btn">WA</a>
-                </div>
-                <div class="dir-item">
-                    <div class="dir-info">
-                        <strong>Jesús Arturo Aguilar Evia</strong>
-                        <span>Suboficial • A disposición de Sección I</span>
-                    </div>
-                    <a href="https://wa.me/528147899950" target="_blank" class="wa-btn">WA</a>
-                </div>
-                <div class="dir-item">
-                    <div class="dir-info">
-                        <strong>Juan Carlos Díaz Jiménez</strong>
-                        <span>Suboficial • A disposición de Sección I</span>
-                    </div>
-                    <a href="https://wa.me/525512782989" target="_blank" class="wa-btn">WA</a>
-                </div>
-                <div class="dir-item">
-                    <div class="dir-info">
-                        <strong>Cindy Hannaly Rodríguez Rodríguez</strong>
-                        <span>Suboficial • A disposición de Sección III</span>
-                    </div>
-                    <a href="https://wa.me/528123929960" target="_blank" class="wa-btn">WA</a>
-                </div>
-                <div class="dir-item">
-                    <div class="dir-info">
-                        <strong>Jenny Aurora Moran Rodríguez</strong>
-                        <span>Suboficial • U.E.C.</span>
-                    </div>
-                    <a href="https://wa.me/528111973526" target="_blank" class="wa-btn">WA</a>
-                </div>
-                <div class="dir-item">
-                    <div class="dir-info">
-                        <strong>Aaron Ernan Trejo Guerrero</strong>
-                        <span>Suboficial • U.E.C.</span>
-                    </div>
-                    <a href="https://wa.me/528131789571" target="_blank" class="wa-btn">WA</a>
-                </div>
-                <div class="dir-item">
-                    <div class="dir-info">
-                        <strong>Enrique Galván Galindo</strong>
-                        <span>Oficial • Unidad Especial de Servicios Generales</span>
-                    </div>
-                    <a href="https://wa.me/528123424354" target="_blank" class="wa-btn">WA</a>
-                </div>
-                <div class="dir-item">
-                    <div class="dir-info">
-                        <strong>Mauricio Molina Muñoz</strong>
-                        <span>Suboficial • Unidad Especial de Servicios Generales</span>
-                    </div>
-                    <a href="https://wa.me/528688351543" target="_blank" class="wa-btn">WA</a>
-                </div>
-                <div class="dir-item">
-                    <div class="dir-info">
-                        <strong>Jaime Ortiz Macias</strong>
-                        <span>Suboficial • Unidad Especial de Servicios Generales</span>
-                    </div>
-                    <a href="https://wa.me/528132720687" target="_blank" class="wa-btn">WA</a>
-                </div>
-                <div class="dir-item">
-                    <div class="dir-info">
-                        <strong>Brayan Francisco López Rojas</strong>
-                        <span>Suboficial • Unidad Especial de Servicios Generales</span>
-                    </div>
-                    <a href="https://wa.me/528113726616" target="_blank" class="wa-btn">WA</a>
-                </div>
-                <div class="dir-item">
-                    <div class="dir-info">
-                        <strong>Hugo Ismael Sánchez Hernández</strong>
-                        <span>Suboficial • Unidad Especial de Servicios Generales</span>
-                    </div>
-                    <a href="https://wa.me/528145357951" target="_blank" class="wa-btn">WA</a>
-                </div>
-                <div class="dir-item">
-                    <div class="dir-info">
-                        <strong>Jorge Pellegrin López</strong>
-                        <span>Policia 1 • SEGUNDO AGRUPAMIENTO</span>
-                    </div>
-                    <a href="https://wa.me/528138931115" target="_blank" class="wa-btn">WA</a>
-                </div>
-                <div class="dir-item">
-                    <div class="dir-info">
-                        <strong>Mario Alberto Aparicio Cortez</strong>
-                        <span>Policia 1 • SEGUNDO AGRUPAMIENTO</span>
-                    </div>
-                    <a href="https://wa.me/528135531205" target="_blank" class="wa-btn">WA</a>
-                </div>
-                <div class="dir-item">
-                    <div class="dir-info">
-                        <strong>David Alberto Lozano Cordova</strong>
-                        <span>Policia 1 • SEGUNDO AGRUPAMIENTO</span>
-                    </div>
-                    <a href="https://wa.me/528132192621" target="_blank" class="wa-btn">WA</a>
-                </div>
                 <div class="dir-item">
                     <div class="dir-info">
                         <strong>Jesus Ruiz Felix</strong>
@@ -502,6 +398,31 @@
                     </div>
                     <a href="https://wa.me/528120657242" target="_blank" class="wa-btn">WA</a>
                 </div>
+
+                <div class="dir-item">
+                    <div class="dir-info">
+                        <strong>Luis Antonio Garcias Suárez</strong>
+                        <span>Oficial • Almacen de Armamento y Municiones</span>
+                    </div>
+                    <a href="https://wa.me/526145140975" target="_blank" class="wa-btn">WA</a>
+                </div>
+
+                <div class="dir-item">
+                    <div class="dir-info">
+                        <strong>Jorge Alberto Carrillo Cardenas</strong>
+                        <span>Oficial • -</span>
+                    </div>
+                    <a href="https://wa.me/528113418418" target="_blank" class="wa-btn">WA</a>
+                </div>
+
+                <div class="dir-item">
+                    <div class="dir-info">
+                        <strong>Enrique Galván Galindo</strong>
+                        <span>Oficial • Unidad Especial de Servicios Generales</span>
+                    </div>
+                    <a href="https://wa.me/528123424354" target="_blank" class="wa-btn">WA</a>
+                </div>
+
                 <div class="dir-item">
                     <div class="dir-info">
                         <strong>Fidel Diaz Ruiz</strong>
@@ -510,69 +431,199 @@
                     <a href="https://wa.me/528131030940" target="_blank" class="wa-btn">WA</a>
                 </div>
 
-                <a href="#" class="back-btn" style="margin-top: 25px;" onclick="showScreen('home-screen'); return false;">← Regresar al Menú Principal</a>
+                <div class="dir-item">
+                    <div class="dir-info">
+                        <strong>Liliana Ramos de la Cruz</strong>
+                        <span>Oficial • Sección V</span>
+                    </div>
+                    <a href="https://wa.me/528124666244" target="_blank" class="wa-btn">WA</a>
+                </div>
+
+                <div class="dir-item">
+                    <div class="dir-info">
+                        <strong>Sofia Sacnite Robles Valtierra</strong>
+                        <span>Suboficial • Búsqueda de Personas</span>
+                    </div>
+                    <a href="https://wa.me/528120748769" target="_blank" class="wa-btn">WA</a>
+                </div>
+
+                <div class="dir-item">
+                    <div class="dir-info">
+                        <strong>David Orlando Quijas López</strong>
+                        <span>Suboficial • -</span>
+                    </div>
+                    <a href="https://wa.me/528120748769" target="_blank" class="wa-btn">WA</a>
+                </div>
+
+                <div class="dir-item">
+                    <div class="dir-info">
+                        <strong>Juan Gabriel Santa Cruz Ruiz</strong>
+                        <span>Suboficial • -</span>
+                    </div>
+                    <a href="https://wa.me/528118171844" target="_blank" class="wa-btn">WA</a>
+                </div>
+
+                <div class="dir-item">
+                    <div class="dir-info">
+                        <strong>Jesús Arturo Aguilar Evia</strong>
+                        <span>Suboficial • -</span>
+                    </div>
+                    <a href="https://wa.me/528147899950" target="_blank" class="wa-btn">WA</a>
+                </div>
+
+                <div class="dir-item">
+                    <div class="dir-info">
+                        <strong>Juan Carlos Díaz Jiménez</strong>
+                        <span>Suboficial • -</span>
+                    </div>
+                    <a href="https://wa.me/525512782989" target="_blank" class="wa-btn">WA</a>
+                </div>
+
+                <div class="dir-item">
+                    <div class="dir-info">
+                        <strong>Cindy Hannaly Rodríguez Rodríguez</strong>
+                        <span>Suboficial • -</span>
+                    </div>
+                    <a href="https://wa.me/528123929960" target="_blank" class="wa-btn">WA</a>
+                </div>
+
+                <div class="dir-item">
+                    <div class="dir-info">
+                        <strong>Jenny Aurora Moran Rodríguez</strong>
+                        <span>Suboficial • U.E.C.</span>
+                    </div>
+                    <a href="https://wa.me/528111973526" target="_blank" class="wa-btn">WA</a>
+                </div>
+
+                <div class="dir-item">
+                    <div class="dir-info">
+                        <strong>Aaron Ernan Trejo Guerrero</strong>
+                        <span>Suboficial • U.E.C.</span>
+                    </div>
+                    <a href="https://wa.me/528131789571" target="_blank" class="wa-btn">WA</a>
+                </div>
+
+                <div class="dir-item">
+                    <div class="dir-info">
+                        <strong>Mauricio Molina Muñoz</strong>
+                        <span>Suboficial • Unidad Especial de Servicios Generales</span>
+                    </div>
+                    <a href="https://wa.me/528688351543" target="_blank" class="wa-btn">WA</a>
+                </div>
+
+                <div class="dir-item">
+                    <div class="dir-info">
+                        <strong>Jaime Ortiz Macias</strong>
+                        <span>Suboficial • Unidad Especial de Servicios Generales</span>
+                    </div>
+                    <a href="https://wa.me/528132720687" target="_blank" class="wa-btn">WA</a>
+                </div>
+
+                <div class="dir-item">
+                    <div class="dir-info">
+                        <strong>Brayan Francisco López Rojas</strong>
+                        <span>Suboficial • Unidad Especial de Servicios Generales</span>
+                    </div>
+                    <a href="https://wa.me/528113726616" target="_blank" class="wa-btn">WA</a>
+                </div>
+
+                <div class="dir-item">
+                    <div class="dir-info">
+                        <strong>Hugo Ismael Sánchez Hernández</strong>
+                        <span>Suboficial • Unidad Especial de Servicios Generales</span>
+                    </div>
+                    <a href="https://wa.me/528145357951" target="_blank" class="wa-btn">WA</a>
+                </div>
+
+                <div class="dir-item">
+                    <div class="dir-info">
+                        <strong>Jorge Pellegrin López</strong>
+                        <span>Policia 1 • SEGUNDO AGRUPAMIENTO</span>
+                    </div>
+                    <a href="https://wa.me/528138931115" target="_blank" class="wa-btn">WA</a>
+                </div>
+
+                <div class="dir-item">
+                    <div class="dir-info">
+                        <strong>Mario Alberto Aparicio Cortez</strong>
+                        <span>Policia 1 • SEGUNDO AGRUPAMIENTO</span>
+                    </div>
+                    <a href="https://wa.me/528135531205" target="_blank" class="wa-btn">WA</a>
+                </div>
+
+                <div class="dir-item">
+                    <div class="dir-info">
+                        <strong>David Alberto Lozano Cordova</strong>
+                        <span>Policia 1 • SEGUNDO AGRUPAMIENTO</span>
+                    </div>
+                    <a href="https://wa.me/528132192621" target="_blank" class="wa-btn">WA</a>
+                </div>
+
+                <a href="#" class="back-btn-large" style="margin-top: 20px;" onclick="showScreen('home-screen'); return false;">← Regresar al Menú Principal</a>
             </div>
         </div>
 
         <div id="deployment-screen" class="screen">
             <div class="content-section">
-                <div class="section-title">Zonas de Despliegue</div>
+                <div class="section-title">Zonas</div>
+                <a href="#" class="floating-back-btn" onclick="showScreen('home-screen'); return false;">← Volver</a>
                 
-                <a href="#" class="area-btn btn-1" data-name="Centro de Mando" data-mando-name="SUBINSPECTOR JUAN CARLOS CORONA RUIZ" data-mando="1" data-fc="11" data-cad="0" data-gae="0" data-crp="0" data-total="12">
+                <a href="#" class="area-btn btn-1" data-name="Centro de Mando" data-mando-name="SUBINSPECTOR JESUS RUIZ FELIX" data-mando="1" data-fc="11" data-cad="0" data-gae="0" data-crp="0" data-total="12">
                     Centro de Mando <span class="total-badge">12 Elms</span>
                 </a>
-                <a href="#" class="area-btn btn-2" data-name="UCM" data-mando-name="OFICIAL DIAZ RUIZ FIDEL" data-mando="1" data-fc="100" data-cad="20" data-gae="0" data-crp="0" data-total="121">
+                <a href="#" class="area-btn btn-2" data-name="UCM" data-mando-name="OFICIAL FIDEL DIAZ RUIZ" data-mando="1" data-fc="100" data-cad="20" data-gae="0" data-crp="0" data-total="121">
                     UCM <span class="total-badge">121 Elms</span>
                 </a>
                 <a href="#" class="area-btn btn-3" data-name="Tecnología" data-mando-name="SUBINSPECTOR BENJAMÍN LÓPEZ" data-mando="1" data-fc="6" data-cad="0" data-gae="0" data-crp="0" data-total="7">
                     Tecnología <span class="total-badge">7 Elms</span>
                 </a>
-                <a href="#" class="area-btn btn-4" data-name="Escenario" data-mando-name="SUBOFICIAL QUIJAS LÓPEZ DAVID ORLANDO" data-mando="1" data-fc="0" data-cad="35" data-gae="0" data-crp="0" data-total="36">
+                <a href="#" class="area-btn btn-4" data-name="Escenario" data-mando-name="SUBOFICIAL DAVID ORLANDO QUIJAS LÓPEZ" data-mando="1" data-fc="0" data-cad="35" data-gae="0" data-crp="0" data-total="36">
                     Escenario <span class="total-badge">36 Elms</span>
                 </a>
-                <a href="#" class="area-btn btn-5" data-name="Camerinos" data-mando-name="OFICIAL GARCÍA SUAREZ LUIS ANTONIO" data-mando="1" data-fc="0" data-cad="5" data-gae="5" data-crp="0" data-total="11">
+                <a href="#" class="area-btn btn-5" data-name="Camerinos" data-mando-name="OFICIAL LUIS ANTONIO GARCIAS SUÁREZ" data-mando="1" data-fc="0" data-cad="5" data-gae="5" data-crp="0" data-total="11">
                     Camerinos <span class="total-badge">11 Elms</span>
                 </a>
-                <a href="#" class="area-btn btn-6" data-name="VIP" data-mando-name="SUBOFICIAL ROBLES VALTIERRA SOFIA SACNICTE" data-mando="1" data-fc="0" data-cad="5" data-gae="5" data-crp="0" data-total="11">
+                <a href="#" class="area-btn btn-6" data-name="VIP" data-mando-name="SUBOFICIAL SOFIA SACNITE ROBLES VALTIERRA" data-mando="1" data-fc="0" data-cad="5" data-gae="5" data-crp="0" data-total="11">
                     VIP <span class="total-badge">11 Elms</span>
                 </a>
-                <a href="#" class="area-btn btn-7" data-name="Preferencial" data-mando-name="SUBOFICIAL SANTA CRUZ RUIZ JUAN GABRIEL" data-mando="1" data-fc="0" data-cad="10" data-gae="5" data-crp="0" data-total="16">
+                <a href="#" class="area-btn btn-7" data-name="Preferencial" data-mando-name="SUBOFICIAL JUAN GABRIEL SANTA CRUZ RUIZ" data-mando="1" data-fc="0" data-cad="10" data-gae="5" data-crp="0" data-total="16">
                     Preferencial <span class="total-badge">16 Elms</span>
                 </a>
-                <a href="#" class="area-btn btn-8" data-name="General" data-mando-name="OFICIAL RAMOS DE LA CRUZ LILIANA<br><br>SUBOFICIAL AGUILAR EVIA JESÚS ARTURO" data-mando="2" data-fc="0" data-cad="35" data-gae="0" data-crp="0" data-total="36">
+                <a href="#" class="area-btn btn-8" data-name="General" data-mando-name="OFICIAL LILIANA RAMOS DE LA CRUZ<br><br>SUBOFICIAL JESÚS ARTURO AGUILAR EVIA" data-mando="2" data-fc="0" data-cad="35" data-gae="0" data-crp="0" data-total="36">
                     General <span class="total-badge">36 Elms</span>
                 </a>
-                <a href="#" class="area-btn btn-9" data-name="Perimetral Norte" data-mando-name="OFICIAL GALVÁN GALINDO ENRIQUE<br><br>SUBOFICIAL RODRÍGUEZ RODRÍGUEZ CINDY HANNALY" data-mando="2" data-fc="0" data-cad="35" data-gae="0" data-crp="0" data-total="37">
+                <a href="#" class="area-btn btn-9" data-name="Perimetral Norte" data-mando-name="OFICIAL ENRIQUE GALVÁN GALINDO<br><br>SUBOFICIAL CINDY HANNALY RODRÍGUEZ" data-mando="2" data-fc="0" data-cad="35" data-gae="0" data-crp="0" data-total="37">
                     Perimetral Norte <span class="total-badge">37 Elms</span>
                 </a>
-                <a href="#" class="area-btn btn-10" data-name="Perimetral Sur" data-mando-name="SUBOFICIAL MORAN RODRÍGUEZ JENNY AURORA<br><br>SUBOFICIAL LÓPEZ ROJAS BRAYAN FRANCISCO" data-mando="2" data-fc="0" data-cad="35" data-gae="0" data-crp="0" data-total="37">
+                <a href="#" class="area-btn btn-10" data-name="Perimetral Sur" data-mando-name="SUBOFICIAL JENNY AURORA MORAN RODRÍGUEZ<br><br>SUBOFICIAL BRAYAN FRANCISCO LÓPEZ ROJAS" data-mando="2" data-fc="0" data-cad="35" data-gae="0" data-crp="0" data-total="37">
                     Perimetral Sur <span class="total-badge">37 Elms</span>
                 </a>
-                <a href="#" class="area-btn btn-11" data-name="Acceso 4 Esc Adolfo Prieto" data-mando-name="OFICIAL CARRILLO CARDENAS JORGE ALBERTO" data-mando="1" data-fc="0" data-cad="10" data-gae="10" data-crp="0" data-total="21">
+                <a href="#" class="area-btn btn-11" data-name="Acceso 4 Esc Adolfo Prieto" data-mando-name="OFICIAL JORGE ALBERTO CARRILLO CARDENAS" data-mando="1" data-fc="0" data-cad="10" data-gae="10" data-crp="0" data-total="21">
                     Acceso 4 Esc Adolfo Prieto <span class="total-badge">21 Elms</span>
                 </a>
-                <a href="#" class="area-btn btn-12" data-name="Acceso Pista" data-mando-name="SUBOFICIAL MOLINA MUÑOZ MAURICIO" data-mando="1" data-fc="0" data-cad="10" data-gae="10" data-crp="0" data-total="21">
+                <a href="#" class="area-btn btn-12" data-name="Acceso Pista" data-mando-name="SUBOFICIAL MAURICIO MOLINA MUÑOZ" data-mando="1" data-fc="0" data-cad="10" data-gae="10" data-crp="0" data-total="21">
                     Acceso Pista <span class="total-badge">21 Elms</span>
                 </a>
-                <a href="#" class="area-btn btn-13" data-name="Acceso 3 Arena Monterrey" data-mando-name="SUBOFICIAL DIAZ JIMÉNEZ JUAN CARLOS" data-mando="1" data-fc="0" data-cad="10" data-gae="0" data-crp="0" data-total="11">
+                <a href="#" class="area-btn btn-13" data-name="Acceso 3 Arena Monterrey" data-mando-name="SUBOFICIAL JUAN CARLOS DÍAZ JIMÉNEZ" data-mando="1" data-fc="0" data-cad="10" data-gae="0" data-crp="0" data-total="11">
                     Acceso 3 Arena Monterrey <span class="total-badge">11 Elms</span>
                 </a>
-                <a href="#" class="area-btn btn-14" data-name="Periferia Parque" data-mando-name="SUBOFICIAL SÁNCHEZ HERNÁNDEZ HUGO ISMAEL" data-mando="1" data-fc="25" data-cad="0" data-gae="0" data-crp="5" data-total="26">
+                <a href="#" class="area-btn btn-14" data-name="Periferia Parque" data-mando-name="SUBOFICIAL HUGO ISMAEL SÁNCHEZ HERNÁNDEZ" data-mando="1" data-fc="25" data-cad="0" data-gae="0" data-crp="5" data-total="26">
                     Periferia Parque <span class="total-badge">26 Elms</span>
                 </a>
-                <a href="#" class="area-btn btn-15" data-name="Acceso 5 Cerrado" data-mando-name="SUBOFICIAL ORTIZ MACIAS JAIME" data-mando="1" data-fc="0" data-cad="5" data-gae="5" data-crp="0" data-total="11">
+                <a href="#" class="area-btn btn-15" data-name="Acceso 5 Cerrado" data-mando-name="SUBOFICIAL JAIME ORTIZ MACIAS" data-mando="1" data-fc="0" data-cad="5" data-gae="5" data-crp="0" data-total="11">
                     Acceso 5 Cerrado <span class="total-badge">11 Elms</span>
                 </a>
-                <a href="#" class="area-btn btn-16" data-name="Binomios Santa Lucia" data-mando-name="SUBOFICIAL TREJO GUERRERO AARON ERNAN" data-mando="1" data-fc="0" data-cad="35" data-gae="10" data-crp="0" data-total="46">
+                <a href="#" class="area-btn btn-16" data-name="Binomios Santa Lucia" data-mando-name="SUBOFICIAL AARON ERNAN TREJO GUERRERO" data-mando="1" data-fc="0" data-cad="35" data-gae="10" data-crp="0" data-total="46">
                     Binomios Santa Lucia <span class="total-badge">46 Elms</span>
                 </a>
-
-                <a href="#" class="back-btn" style="margin-top: 25px;" onclick="showScreen('home-screen'); return false;">← Regresar al Menú Principal</a>
             </div>
         </div>
 
         <div id="detail-screen" class="screen">
             <div class="content-section">
+                
+                <a href="#" class="floating-back-btn" id="btn-back-to-deployment-float">← Zonas</a>
+
                 <div class="detail-card">
                     <div id="zone-title" class="detail-zone-title">Zona</div>
                     
@@ -602,16 +653,16 @@
                         </tbody>
                     </table>
 
-                    <div style="text-align: center; margin: 10px 0 15px 0; font-size: 15px;">
-                        <span style="color: #8892b0; text-transform: uppercase; font-size:12px;">Total bajo su cargo:</span>
+                    <div style="text-align: center; margin: 10px 0 5px 0; font-size: 14px;">
+                        <span style="color: #8892b0; text-transform: uppercase; font-size:11px;">Total bajo su cargo:</span>
                         <br>
-                        <strong id="val-total" style="font-size: 32px; color: #c5a059;">0</strong> 
+                        <strong id="val-total" style="font-size: 28px; color: #c5a059;">0</strong> 
                         <br>
-                        <span style="color: #c5a059; font-weight: bold; font-size:14px;">Elementos Asignados</span>
+                        <span style="color: #c5a059; font-weight: bold; font-size:13px;">Elementos Asignados</span>
                     </div>
                 </div>
 
-                <a href="#" class="back-btn" id="btn-back-to-deployment">← Regresar a Zonas</a>
+                <a href="#" class="back-btn-large" id="btn-back-to-deployment">← Regresar al Listado de Zonas</a>
             </div>
         </div>
     </div>
@@ -648,8 +699,12 @@
                 });
             });
 
-            // Botón de regreso de Detalle a Despliegue
+            // Botones de regreso de Detalle a Despliegue
             document.getElementById('btn-back-to-deployment').addEventListener('click', function(e) {
+                e.preventDefault();
+                showScreen('deployment-screen');
+            });
+            document.getElementById('btn-back-to-deployment-float').addEventListener('click', function(e) {
                 e.preventDefault();
                 showScreen('deployment-screen');
             });
