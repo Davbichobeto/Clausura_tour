@@ -91,7 +91,10 @@
 </div>
 
     <div id="detail-screen" class="screen">
-        <div class="detail-card">
+        <div class="detail-card" style="margin-top: 10px; border: 1px solid #c5a059;">
+    <h3 style="color:#c5a059; font-size: 12px; margin-bottom: 8px;">Elementos Asignados:</h3>
+    <ul id="lista-elementos" style="list-style: none; font-size: 11px; color: #fff; max-height: 100px; overflow-y: auto;">
+        </ul
             <img id="zone-map" src="" style="width:100%; border-radius:5px; display:none;">
             <div id="zone-title" style="font-weight:bold; color:#c5a059; margin-top:10px;"></div>
             <div style="font-size:11px; margin-top:5px;">Mando: <strong id="v-mando-name"></strong></div>
@@ -106,34 +109,68 @@
 </div>
 
     <script>
+        <script>
+    // Base de datos de personal por zona
+    const datosPersonal = {
+        "CENTRO_DE_MANDO.pdf": ["J. RUIZ FELIX", "JORGE PELLEGRIN", "MARIO APARICIO", "DAVID LOZANO"],
+        "UCM.pdf": ["FIDEL DIAZ RUIZ"],
+        "TECNOLOGIA.pdf": ["BENJAMÍN LÓPEZ"],
+        "ESCENARIO.pdf": ["DAVID QUIJAS"],
+        "CAMERINOS.pdf": ["LUIS GARCIA"],
+        "VIP.pdf": ["SOFIA ROBLES"],
+        "PREFERENCIAL.pdf": ["JUAN SANTA CRUZ"],
+        "GENERAL.pdf": ["LILIANA RAMOS", "JESÚS AGUILAR"],
+        "PERIMETRAL_NORTE.pdf": ["ENRIQUE GALVÁN", "CINDY RODRÍGUEZ"],
+        "PERIMETRAL_SUR.pdf": ["JENNY MORAN", "BRAYAN LÓPEZ"],
+        "ACCESO_4.pdf": ["JORGE CARRILLO"],
+        "ACCESO_PISTA.pdf": ["MAURICIO MOLINA"],
+        "ACCESO_3.pdf": ["JUAN CARLOS DÍAZ"],
+        "PERIFERIA.pdf": ["HUGO SÁNCHEZ"],
+        "ACCESO_5.pdf": ["JAIME ORTIZ"],
+        "BINOMIOS.pdf": ["AARON TREJO"]
+    };
     function showScreen(id) { 
         document.querySelectorAll('.screen').forEach(s => s.classList.remove('active')); 
         document.getElementById(id).classList.add('active'); 
         window.scrollTo(0,0); 
     }
     function showDetail(el) {
-    document.getElementById('zone-title').innerText = el.getAttribute('data-name');
-    document.getElementById('v-mando-name').innerText = el.getAttribute('data-mando-name');
-    document.getElementById('v-mando').innerText = el.getAttribute('data-mando');
-    document.getElementById('v-fc').innerText = el.getAttribute('data-fc');
-    document.getElementById('v-cadetes').innerText = el.getAttribute('data-cadetes');
-    document.getElementById('v-gae').innerText = el.getAttribute('data-gae');
-    document.getElementById('v-crp').innerText = el.getAttribute('data-crp');
-    document.getElementById('v-total').innerText = el.getAttribute('data-total');
-    
-    let m = document.getElementById('zone-map');
-    m.src = el.getAttribute('data-map');
-    m.style.display = 'block';
-    
-    // Configurar botón PDF
-    let btn = document.getElementById('btn-pdf');
-    let rutaPdf = el.getAttribute('data-pdf');
-    
-    btn.href = rutaPdf;
-    // Eliminamos explícitamente cualquier atributo download que pudiera quedar
-    btn.removeAttribute('download'); 
-    
-    showScreen('detail-screen');
+        // 1. Llenar los datos generales
+        document.getElementById('zone-title').innerText = el.getAttribute('data-name');
+        document.getElementById('v-mando-name').innerText = el.getAttribute('data-mando-name');
+        document.getElementById('v-mando').innerText = el.getAttribute('data-mando');
+        document.getElementById('v-fc').innerText = el.getAttribute('data-fc');
+        document.getElementById('v-cadetes').innerText = el.getAttribute('data-cadetes');
+        document.getElementById('v-gae').innerText = el.getAttribute('data-gae');
+        document.getElementById('v-crp').innerText = el.getAttribute('data-crp');
+        document.getElementById('v-total').innerText = el.getAttribute('data-total');
+        
+        // 2. Llenar la lista de personal (LA VISTA PREVIA)
+        let archivo = el.getAttribute('data-pdf');
+        let listaContainer = document.getElementById('lista-elementos');
+        listaContainer.innerHTML = ""; // Limpia la lista anterior
+        
+        if (datosPersonal[archivo]) {
+            datosPersonal[archivo].forEach(nombre => {
+                let li = document.createElement('li');
+                li.innerHTML = "• " + nombre;
+                listaContainer.appendChild(li);
+            });
+        } else {
+            listaContainer.innerHTML = "<li>Sin personal asignado en lista.</li>";
+        }
+        
+        // 3. Configurar mapa y botón PDF
+        let m = document.getElementById('zone-map');
+        m.src = el.getAttribute('data-map');
+        m.style.display = 'block';
+        
+        let btn = document.getElementById('btn-pdf');
+        btn.href = el.getAttribute('data-pdf');
+        btn.removeAttribute('download'); // Asegura que se abra en lugar de descargar
+        
+        // 4. Cambiar de pantalla
+        showScreen('detail-screen');
 }
 </script>
 </body>
