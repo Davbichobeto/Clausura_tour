@@ -69,7 +69,6 @@
             border-radius: 8px;
         }
 
-        /* Secciones */
         .content-section {
             padding: 25px 20px;
         }
@@ -85,16 +84,34 @@
             padding-bottom: 10px;
         }
 
-        /* Sistema de Navegación de Pantallas */
-        .screen {
-            display: none;
+        /* Pantallas */
+        .screen { display: none; }
+        .screen.active { display: block; }
+
+        /* Botones del Menú Principal */
+        .main-menu-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 800;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: #000;
+            text-align: center;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
         }
 
-        .screen.active {
-            display: block;
-        }
+        .btn-directorio { background-color: #25D366; color: #ffffff; }
+        .btn-despliegue { background-color: #c5a059; color: #000000; }
 
-        /* Estructura de botones limpia para iOS */
+        /* Botones de Zonas (Pantalla Despliegue) */
         .area-btn {
             width: 100%;
             padding: 16px;
@@ -111,14 +128,9 @@
             border-radius: 8px;
             text-transform: uppercase;
             box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-            transition: transform 0.2s;
+            text-decoration: none;
+            touch-action: manipulation;
             -webkit-tap-highlight-color: transparent;
-            position: relative;
-            z-index: 10;
-        }
-
-        .area-btn:active {
-            transform: scale(0.98);
         }
 
         .area-btn .total-badge {
@@ -126,10 +138,10 @@
             padding: 4px 10px;
             border-radius: 20px;
             font-size: 12px;
-            pointer-events: none; /* Evita que el badge bloquee el clic */
+            pointer-events: none;
         }
 
-        /* Colores de Botones */
+        /* Colores de Botones Zonas */
         .btn-1 { background-color: #264653; }
         .btn-2 { background-color: #2a9d8f; }
         .btn-3 { background-color: #e9c46a; color: #000; }
@@ -150,7 +162,45 @@
         .btn-15 { background-color: #1780a1; }
         .btn-16 { background-color: #0091ad; }
 
-        /* Estilos de la Nueva Sección de Detalle */
+        /* Lista de Directorio */
+        .dir-item {
+            background: #11141a;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            border-left: 3px solid #25D366;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .dir-info strong {
+            display: block;
+            color: #ffffff;
+            font-size: 13px;
+            margin-bottom: 4px;
+            text-transform: uppercase;
+        }
+        .dir-info span {
+            color: #8892b0;
+            font-size: 11px;
+            text-transform: uppercase;
+            line-height: 1.4;
+        }
+
+        .wa-btn {
+            background: #25D366;
+            color: white;
+            padding: 10px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: bold;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            text-transform: uppercase;
+        }
+
+        /* Detalle Dinámico */
         .detail-card {
             background: #11141a;
             border-radius: 10px;
@@ -170,7 +220,6 @@
             padding-bottom: 8px;
         }
 
-        /* Recuadro de Mando Responsable */
         .mando-responsable {
             background: #1f2833;
             padding: 12px;
@@ -186,14 +235,12 @@
             color: #8892b0;
             text-transform: uppercase;
             margin-bottom: 6px;
-            letter-spacing: 1px;
         }
 
         .mando-responsable strong {
             color: #ffffff;
             font-size: 13px;
             display: block;
-            line-height: 1.5;
         }
 
         .details-table {
@@ -212,33 +259,26 @@
 
         .details-table th {
             color: #c5a059;
-            font-weight: 600;
-            text-transform: uppercase;
             font-size: 11px;
             background-color: #161b22;
         }
 
-        .details-table td {
-            font-weight: bold;
-            font-size: 16px;
-        }
+        .details-table td { font-weight: bold; font-size: 16px; }
 
         .back-btn {
             display: block;
             width: 100%;
             padding: 15px;
-            background-color: #c5a059;
-            color: #000000;
+            background-color: #455e89;
+            color: #ffffff;
             text-align: center;
-            border: none;
             border-radius: 8px;
             font-size: 14px;
             font-weight: 800;
-            cursor: pointer;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-            -webkit-tap-highlight-color: transparent;
+            text-decoration: none;
+            touch-action: manipulation;
+            margin-bottom: 10px;
         }
 
         /* Resumen Total general */
@@ -251,7 +291,7 @@
             font-weight: 800;
             font-size: 16px;
             text-transform: uppercase;
-            margin-top: 25px;
+            margin-top: 15px;
         }
 
         .total-grid {
@@ -279,10 +319,7 @@
             margin-bottom: 4px;
         }
 
-        .total-box strong {
-            font-size: 16px;
-            color: #c5a059;
-        }
+        .total-box strong { font-size: 16px; color: #c5a059; }
     </style>
 </head>
 <body>
@@ -298,58 +335,16 @@
             </div>
         </div>
 
-        <div id="main-screen" class="screen active">
+        <div id="home-screen" class="screen active">
             <div class="content-section">
-                <div class="section-title">Despliegue de Fuerza Civil por Zonas</div>
                 
-                <button type="button" class="area-btn btn-1" data-name="Centro de Mando" data-mando-name="SUBINSPECTOR JUAN CARLOS CORONA RUIZ" data-mando="1" data-fc="11" data-cad="0" data-gae="0" data-crp="0" data-total="12">
-                    Centro de Mando <span class="total-badge">12 Elms</span>
-                </button>
-                <button type="button" class="area-btn btn-2" data-name="UCM" data-mando-name="OFICIAL DIAZ RUIZ FIDEL" data-mando="1" data-fc="100" data-cad="20" data-gae="0" data-crp="0" data-total="121">
-                    UCM <span class="total-badge">121 Elms</span>
-                </button>
-                <button type="button" class="area-btn btn-3" data-name="Tecnología" data-mando-name="SUBINSPECTOR BENJAMÍN LÓPEZ" data-mando="1" data-fc="6" data-cad="0" data-gae="0" data-crp="0" data-total="7">
-                    Tecnología <span class="total-badge">7 Elms</span>
-                </button>
-                <button type="button" class="area-btn btn-4" data-name="Escenario" data-mando-name="SUBOFICIAL QUIJAS LÓPEZ DAVID ORLANDO" data-mando="1" data-fc="0" data-cad="35" data-gae="0" data-crp="0" data-total="36">
-                    Escenario <span class="total-badge">36 Elms</span>
-                </button>
-                <button type="button" class="area-btn btn-5" data-name="Camerinos" data-mando-name="OFICIAL GARCÍA SUAREZ LUIS ANTONIO" data-mando="1" data-fc="0" data-cad="5" data-gae="5" data-crp="0" data-total="11">
-                    Camerinos <span class="total-badge">11 Elms</span>
-                </button>
-                <button type="button" class="area-btn btn-6" data-name="VIP" data-mando-name="SUBOFICIAL ROBLES VALTIERRA SOFIA SACNICTE" data-mando="1" data-fc="0" data-cad="5" data-gae="5" data-crp="0" data-total="11">
-                    VIP <span class="total-badge">11 Elms</span>
-                </button>
-                <button type="button" class="area-btn btn-7" data-name="Preferencial" data-mando-name="SUBOFICIAL SANTA CRUZ RUIZ JUAN GABRIEL" data-mando="1" data-fc="0" data-cad="10" data-gae="5" data-crp="0" data-total="16">
-                    Preferencial <span class="total-badge">16 Elms</span>
-                </button>
-                <button type="button" class="area-btn btn-8" data-name="General" data-mando-name="OFICIAL RAMOS DE LA CRUZ LILIANA<br><br>SUBOFICIAL AGUILAR EVIA JESÚS ARTURO" data-mando="2" data-fc="0" data-cad="35" data-gae="0" data-crp="0" data-total="36">
-                    General <span class="total-badge">36 Elms</span>
-                </button>
-                <button type="button" class="area-btn btn-9" data-name="Perimetral Norte" data-mando-name="OFICIAL GALVÁN GALINDO ENRIQUE<br><br>SUBOFICIAL RODRÍGUEZ RODRÍGUEZ CINDY HANNALY" data-mando="2" data-fc="0" data-cad="35" data-gae="0" data-crp="0" data-total="37">
-                    Perimetral Norte <span class="total-badge">37 Elms</span>
-                </button>
-                <button type="button" class="area-btn btn-10" data-name="Perimetral Sur" data-mando-name="SUBOFICIAL MORAN RODRÍGUEZ JENNY AURORA<br><br>SUBOFICIAL LÓPEZ ROJAS BRAYAN FRANCISCO" data-mando="2" data-fc="0" data-cad="35" data-gae="0" data-crp="0" data-total="37">
-                    Perimetral Sur <span class="total-badge">37 Elms</span>
-                </button>
-                <button type="button" class="area-btn btn-11" data-name="Acceso 4 Esc Adolfo Prieto" data-mando-name="OFICIAL CARRILLO CARDENAS JORGE ALBERTO" data-mando="1" data-fc="0" data-cad="10" data-gae="10" data-crp="0" data-total="21">
-                    Acceso 4 Esc Adolfo Prieto <span class="total-badge">21 Elms</span>
-                </button>
-                <button type="button" class="area-btn btn-12" data-name="Acceso Pista" data-mando-name="SUBOFICIAL MOLINA MUÑOZ MAURICIO" data-mando="1" data-fc="0" data-cad="10" data-gae="10" data-crp="0" data-total="21">
-                    Acceso Pista <span class="total-badge">21 Elms</span>
-                </button>
-                <button type="button" class="area-btn btn-13" data-name="Acceso 3 Arena Monterrey" data-mando-name="SUBOFICIAL DIAZ JIMÉNEZ JUAN CARLOS" data-mando="1" data-fc="0" data-cad="10" data-gae="0" data-crp="0" data-total="11">
-                    Acceso 3 Arena Monterrey <span class="total-badge">11 Elms</span>
-                </button>
-                <button type="button" class="area-btn btn-14" data-name="Periferia Parque" data-mando-name="SUBOFICIAL SÁNCHEZ HERNÁNDEZ HUGO ISMAEL" data-mando="1" data-fc="25" data-cad="0" data-gae="0" data-crp="5" data-total="26">
-                    Periferia Parque <span class="total-badge">26 Elms</span>
-                </button>
-                <button type="button" class="area-btn btn-15" data-name="Acceso 5 Cerrado" data-mando-name="SUBOFICIAL ORTIZ MACIAS JAIME" data-mando="1" data-fc="0" data-cad="5" data-gae="5" data-crp="0" data-total="11">
-                    Acceso 5 Cerrado <span class="total-badge">11 Elms</span>
-                </button>
-                <button type="button" class="area-btn btn-16" data-name="Binomios Santa Lucia" data-mando-name="SUBOFICIAL TREJO GUERRERO AARON ERNAN" data-mando="1" data-fc="0" data-cad="35" data-gae="10" data-crp="0" data-total="46">
-                    Binomios Santa Lucia <span class="total-badge">46 Elms</span>
-                </button>
+                <a href="#" class="main-menu-btn btn-directorio" onclick="showScreen('directory-screen'); return false;">
+                    Directorio de Mandos
+                </a>
+                
+                <a href="#" class="main-menu-btn btn-despliegue" onclick="showScreen('deployment-screen'); return false;">
+                    Despliegue de Zonas
+                </a>
 
                 <div class="total-general-card">Total General: 460 Elementos</div>
                 <div class="total-grid">
@@ -360,6 +355,219 @@
                     <div class="total-box"><span>CRP</span><strong>5</strong></div>
                     <div class="total-box" style="background:#c5a059;"><span style="color:#000;">Total</span><strong style="color:#000;">460</strong></div>
                 </div>
+            </div>
+        </div>
+
+        <div id="directory-screen" class="screen">
+            <div class="content-section">
+                <div class="section-title">Contactos Operativos</div>
+                
+                <div class="dir-item">
+                    <div class="dir-info">
+                        <strong>Liliana Ramos de la Cruz</strong>
+                        <span>Oficial • Sección V</span>
+                    </div>
+                    <a href="https://wa.me/528124666244" target="_blank" class="wa-btn">WA</a>
+                </div>
+                <div class="dir-item">
+                    <div class="dir-info">
+                        <strong>Luis Antonio Garcias Suárez</strong>
+                        <span>Oficial • Almacen de Armamento y Municiones</span>
+                    </div>
+                    <a href="https://wa.me/526145140975" target="_blank" class="wa-btn">WA</a>
+                </div>
+                <div class="dir-item">
+                    <div class="dir-info">
+                        <strong>Sofia Sacnite Robles Valtierra</strong>
+                        <span>Suboficial • Búsqueda de Personas</span>
+                    </div>
+                    <a href="https://wa.me/528120748769" target="_blank" class="wa-btn">WA</a>
+                </div>
+                <div class="dir-item">
+                    <div class="dir-info">
+                        <strong>Jorge Alberto Carrillo Cardenas</strong>
+                        <span>Oficial • A disposición de I.G.A.I.</span>
+                    </div>
+                    <a href="https://wa.me/528113418418" target="_blank" class="wa-btn">WA</a>
+                </div>
+                <div class="dir-item">
+                    <div class="dir-info">
+                        <strong>David Orlando Quijas López</strong>
+                        <span>Suboficial • A disposición de I.G.A.I.</span>
+                    </div>
+                    <a href="https://wa.me/528120748769" target="_blank" class="wa-btn">WA</a>
+                </div>
+                <div class="dir-item">
+                    <div class="dir-info">
+                        <strong>Juan Gabriel Santa Cruz Ruiz</strong>
+                        <span>Suboficial • A disposición de Sección I</span>
+                    </div>
+                    <a href="https://wa.me/528118171844" target="_blank" class="wa-btn">WA</a>
+                </div>
+                <div class="dir-item">
+                    <div class="dir-info">
+                        <strong>Jesús Arturo Aguilar Evia</strong>
+                        <span>Suboficial • A disposición de Sección I</span>
+                    </div>
+                    <a href="https://wa.me/528147899950" target="_blank" class="wa-btn">WA</a>
+                </div>
+                <div class="dir-item">
+                    <div class="dir-info">
+                        <strong>Juan Carlos Díaz Jiménez</strong>
+                        <span>Suboficial • A disposición de Sección I</span>
+                    </div>
+                    <a href="https://wa.me/525512782989" target="_blank" class="wa-btn">WA</a>
+                </div>
+                <div class="dir-item">
+                    <div class="dir-info">
+                        <strong>Cindy Hannaly Rodríguez Rodríguez</strong>
+                        <span>Suboficial • A disposición de Sección III</span>
+                    </div>
+                    <a href="https://wa.me/528123929960" target="_blank" class="wa-btn">WA</a>
+                </div>
+                <div class="dir-item">
+                    <div class="dir-info">
+                        <strong>Jenny Aurora Moran Rodríguez</strong>
+                        <span>Suboficial • U.E.C.</span>
+                    </div>
+                    <a href="https://wa.me/528111973526" target="_blank" class="wa-btn">WA</a>
+                </div>
+                <div class="dir-item">
+                    <div class="dir-info">
+                        <strong>Aaron Ernan Trejo Guerrero</strong>
+                        <span>Suboficial • U.E.C.</span>
+                    </div>
+                    <a href="https://wa.me/528131789571" target="_blank" class="wa-btn">WA</a>
+                </div>
+                <div class="dir-item">
+                    <div class="dir-info">
+                        <strong>Enrique Galván Galindo</strong>
+                        <span>Oficial • Unidad Especial de Servicios Generales</span>
+                    </div>
+                    <a href="https://wa.me/528123424354" target="_blank" class="wa-btn">WA</a>
+                </div>
+                <div class="dir-item">
+                    <div class="dir-info">
+                        <strong>Mauricio Molina Muñoz</strong>
+                        <span>Suboficial • Unidad Especial de Servicios Generales</span>
+                    </div>
+                    <a href="https://wa.me/528688351543" target="_blank" class="wa-btn">WA</a>
+                </div>
+                <div class="dir-item">
+                    <div class="dir-info">
+                        <strong>Jaime Ortiz Macias</strong>
+                        <span>Suboficial • Unidad Especial de Servicios Generales</span>
+                    </div>
+                    <a href="https://wa.me/528132720687" target="_blank" class="wa-btn">WA</a>
+                </div>
+                <div class="dir-item">
+                    <div class="dir-info">
+                        <strong>Brayan Francisco López Rojas</strong>
+                        <span>Suboficial • Unidad Especial de Servicios Generales</span>
+                    </div>
+                    <a href="https://wa.me/528113726616" target="_blank" class="wa-btn">WA</a>
+                </div>
+                <div class="dir-item">
+                    <div class="dir-info">
+                        <strong>Hugo Ismael Sánchez Hernández</strong>
+                        <span>Suboficial • Unidad Especial de Servicios Generales</span>
+                    </div>
+                    <a href="https://wa.me/528145357951" target="_blank" class="wa-btn">WA</a>
+                </div>
+                <div class="dir-item">
+                    <div class="dir-info">
+                        <strong>Jorge Pellegrin López</strong>
+                        <span>Policia 1 • SEGUNDO AGRUPAMIENTO</span>
+                    </div>
+                    <a href="https://wa.me/528138931115" target="_blank" class="wa-btn">WA</a>
+                </div>
+                <div class="dir-item">
+                    <div class="dir-info">
+                        <strong>Mario Alberto Aparicio Cortez</strong>
+                        <span>Policia 1 • SEGUNDO AGRUPAMIENTO</span>
+                    </div>
+                    <a href="https://wa.me/528135531205" target="_blank" class="wa-btn">WA</a>
+                </div>
+                <div class="dir-item">
+                    <div class="dir-info">
+                        <strong>David Alberto Lozano Cordova</strong>
+                        <span>Policia 1 • SEGUNDO AGRUPAMIENTO</span>
+                    </div>
+                    <a href="https://wa.me/528132192621" target="_blank" class="wa-btn">WA</a>
+                </div>
+                <div class="dir-item">
+                    <div class="dir-info">
+                        <strong>Jesus Ruiz Felix</strong>
+                        <span>Subinspector • Unidad Especial de Servicios Generales</span>
+                    </div>
+                    <a href="https://wa.me/528120657242" target="_blank" class="wa-btn">WA</a>
+                </div>
+                <div class="dir-item">
+                    <div class="dir-info">
+                        <strong>Fidel Diaz Ruiz</strong>
+                        <span>Oficial • UCM</span>
+                    </div>
+                    <a href="https://wa.me/528131030940" target="_blank" class="wa-btn">WA</a>
+                </div>
+
+                <a href="#" class="back-btn" style="margin-top: 25px;" onclick="showScreen('home-screen'); return false;">← Regresar al Menú Principal</a>
+            </div>
+        </div>
+
+        <div id="deployment-screen" class="screen">
+            <div class="content-section">
+                <div class="section-title">Zonas de Despliegue</div>
+                
+                <a href="#" class="area-btn btn-1" data-name="Centro de Mando" data-mando-name="SUBINSPECTOR JUAN CARLOS CORONA RUIZ" data-mando="1" data-fc="11" data-cad="0" data-gae="0" data-crp="0" data-total="12">
+                    Centro de Mando <span class="total-badge">12 Elms</span>
+                </a>
+                <a href="#" class="area-btn btn-2" data-name="UCM" data-mando-name="OFICIAL DIAZ RUIZ FIDEL" data-mando="1" data-fc="100" data-cad="20" data-gae="0" data-crp="0" data-total="121">
+                    UCM <span class="total-badge">121 Elms</span>
+                </a>
+                <a href="#" class="area-btn btn-3" data-name="Tecnología" data-mando-name="SUBINSPECTOR BENJAMÍN LÓPEZ" data-mando="1" data-fc="6" data-cad="0" data-gae="0" data-crp="0" data-total="7">
+                    Tecnología <span class="total-badge">7 Elms</span>
+                </a>
+                <a href="#" class="area-btn btn-4" data-name="Escenario" data-mando-name="SUBOFICIAL QUIJAS LÓPEZ DAVID ORLANDO" data-mando="1" data-fc="0" data-cad="35" data-gae="0" data-crp="0" data-total="36">
+                    Escenario <span class="total-badge">36 Elms</span>
+                </a>
+                <a href="#" class="area-btn btn-5" data-name="Camerinos" data-mando-name="OFICIAL GARCÍA SUAREZ LUIS ANTONIO" data-mando="1" data-fc="0" data-cad="5" data-gae="5" data-crp="0" data-total="11">
+                    Camerinos <span class="total-badge">11 Elms</span>
+                </a>
+                <a href="#" class="area-btn btn-6" data-name="VIP" data-mando-name="SUBOFICIAL ROBLES VALTIERRA SOFIA SACNICTE" data-mando="1" data-fc="0" data-cad="5" data-gae="5" data-crp="0" data-total="11">
+                    VIP <span class="total-badge">11 Elms</span>
+                </a>
+                <a href="#" class="area-btn btn-7" data-name="Preferencial" data-mando-name="SUBOFICIAL SANTA CRUZ RUIZ JUAN GABRIEL" data-mando="1" data-fc="0" data-cad="10" data-gae="5" data-crp="0" data-total="16">
+                    Preferencial <span class="total-badge">16 Elms</span>
+                </a>
+                <a href="#" class="area-btn btn-8" data-name="General" data-mando-name="OFICIAL RAMOS DE LA CRUZ LILIANA<br><br>SUBOFICIAL AGUILAR EVIA JESÚS ARTURO" data-mando="2" data-fc="0" data-cad="35" data-gae="0" data-crp="0" data-total="36">
+                    General <span class="total-badge">36 Elms</span>
+                </a>
+                <a href="#" class="area-btn btn-9" data-name="Perimetral Norte" data-mando-name="OFICIAL GALVÁN GALINDO ENRIQUE<br><br>SUBOFICIAL RODRÍGUEZ RODRÍGUEZ CINDY HANNALY" data-mando="2" data-fc="0" data-cad="35" data-gae="0" data-crp="0" data-total="37">
+                    Perimetral Norte <span class="total-badge">37 Elms</span>
+                </a>
+                <a href="#" class="area-btn btn-10" data-name="Perimetral Sur" data-mando-name="SUBOFICIAL MORAN RODRÍGUEZ JENNY AURORA<br><br>SUBOFICIAL LÓPEZ ROJAS BRAYAN FRANCISCO" data-mando="2" data-fc="0" data-cad="35" data-gae="0" data-crp="0" data-total="37">
+                    Perimetral Sur <span class="total-badge">37 Elms</span>
+                </a>
+                <a href="#" class="area-btn btn-11" data-name="Acceso 4 Esc Adolfo Prieto" data-mando-name="OFICIAL CARRILLO CARDENAS JORGE ALBERTO" data-mando="1" data-fc="0" data-cad="10" data-gae="10" data-crp="0" data-total="21">
+                    Acceso 4 Esc Adolfo Prieto <span class="total-badge">21 Elms</span>
+                </a>
+                <a href="#" class="area-btn btn-12" data-name="Acceso Pista" data-mando-name="SUBOFICIAL MOLINA MUÑOZ MAURICIO" data-mando="1" data-fc="0" data-cad="10" data-gae="10" data-crp="0" data-total="21">
+                    Acceso Pista <span class="total-badge">21 Elms</span>
+                </a>
+                <a href="#" class="area-btn btn-13" data-name="Acceso 3 Arena Monterrey" data-mando-name="SUBOFICIAL DIAZ JIMÉNEZ JUAN CARLOS" data-mando="1" data-fc="0" data-cad="10" data-gae="0" data-crp="0" data-total="11">
+                    Acceso 3 Arena Monterrey <span class="total-badge">11 Elms</span>
+                </a>
+                <a href="#" class="area-btn btn-14" data-name="Periferia Parque" data-mando-name="SUBOFICIAL SÁNCHEZ HERNÁNDEZ HUGO ISMAEL" data-mando="1" data-fc="25" data-cad="0" data-gae="0" data-crp="5" data-total="26">
+                    Periferia Parque <span class="total-badge">26 Elms</span>
+                </a>
+                <a href="#" class="area-btn btn-15" data-name="Acceso 5 Cerrado" data-mando-name="SUBOFICIAL ORTIZ MACIAS JAIME" data-mando="1" data-fc="0" data-cad="5" data-gae="5" data-crp="0" data-total="11">
+                    Acceso 5 Cerrado <span class="total-badge">11 Elms</span>
+                </a>
+                <a href="#" class="area-btn btn-16" data-name="Binomios Santa Lucia" data-mando-name="SUBOFICIAL TREJO GUERRERO AARON ERNAN" data-mando="1" data-fc="0" data-cad="35" data-gae="10" data-crp="0" data-total="46">
+                    Binomios Santa Lucia <span class="total-badge">46 Elms</span>
+                </a>
+
+                <a href="#" class="back-btn" style="margin-top: 25px;" onclick="showScreen('home-screen'); return false;">← Regresar al Menú Principal</a>
             </div>
         </div>
 
@@ -403,56 +611,48 @@
                     </div>
                 </div>
 
-                <button type="button" id="btn-back" class="back-btn">← Regresar al Listado Principal</button>
+                <a href="#" class="back-btn" id="btn-back-to-deployment">← Regresar a Zonas</a>
             </div>
         </div>
     </div>
 
     <script>
+        // Función general para cambiar entre pantallas
+        function showScreen(screenId) {
+            document.querySelectorAll('.screen').forEach(function(el) {
+                el.classList.remove('active');
+            });
+            document.getElementById(screenId).classList.add('active');
+            window.scrollTo(0, 0);
+        }
+
         document.addEventListener('DOMContentLoaded', function() {
             
-            // Lógica para todos los botones de las zonas
+            // Inyectar datos al seleccionar una zona
             var botonesZona = document.querySelectorAll('.area-btn');
             
             botonesZona.forEach(function(boton) {
                 boton.addEventListener('click', function(e) {
-                    e.preventDefault(); // Previene cualquier comportamiento extraño del navegador
+                    e.preventDefault();
                     
-                    // Extraer datos del botón
-                    var name = this.getAttribute('data-name');
-                    var mandoName = this.getAttribute('data-mando-name');
-                    var mando = this.getAttribute('data-mando');
-                    var fc = this.getAttribute('data-fc');
-                    var cadetes = this.getAttribute('data-cad');
-                    var gae = this.getAttribute('data-gae');
-                    var crp = this.getAttribute('data-crp');
-                    var total = this.getAttribute('data-total');
+                    document.getElementById('zone-title').innerText = this.getAttribute('data-name');
+                    document.getElementById('val-mando-name').innerHTML = this.getAttribute('data-mando-name') || '-'; 
+                    document.getElementById('val-mando').innerText = this.getAttribute('data-mando') || '-';
+                    document.getElementById('val-fc').innerText = this.getAttribute('data-fc') || '-';
+                    document.getElementById('val-cadetes').innerText = this.getAttribute('data-cad') || '-';
+                    document.getElementById('val-gae').innerText = this.getAttribute('data-gae') || '-';
+                    document.getElementById('val-crp').innerText = this.getAttribute('data-crp') || '-';
+                    document.getElementById('val-total').innerText = this.getAttribute('data-total');
 
-                    // Inyectar datos en la pantalla de detalle
-                    document.getElementById('zone-title').innerText = name;
-                    document.getElementById('val-mando-name').innerHTML = mandoName || '-'; 
-                    document.getElementById('val-mando').innerText = mando || '-';
-                    document.getElementById('val-fc').innerText = fc || '-';
-                    document.getElementById('val-cadetes').innerText = cadetes || '-';
-                    document.getElementById('val-gae').innerText = gae || '-';
-                    document.getElementById('val-crp').innerText = crp || '-';
-                    document.getElementById('val-total').innerText = total;
-
-                    // Cambiar de pantalla
-                    document.getElementById('main-screen').classList.remove('active');
-                    document.getElementById('detail-screen').classList.add('active');
-                    window.scrollTo(0, 0);
+                    showScreen('detail-screen');
                 });
             });
 
-            // Lógica para el botón de regresar
-            document.getElementById('btn-back').addEventListener('click', function(e) {
+            // Botón de regreso de Detalle a Despliegue
+            document.getElementById('btn-back-to-deployment').addEventListener('click', function(e) {
                 e.preventDefault();
-                document.getElementById('detail-screen').classList.remove('active');
-                document.getElementById('main-screen').classList.add('active');
-                window.scrollTo(0, 0);
+                showScreen('deployment-screen');
             });
-
         });
     </script>
 </body>
