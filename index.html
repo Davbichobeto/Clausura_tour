@@ -99,7 +99,7 @@
                 <tr><th>Mando</th><th>FC</th><th>Cadetes</th><th>GAE</th><th>CRP</th><th>Total</th></tr>
                 <tr><td id="v-mando">-</td><td id="v-fc">-</td><td id="v-cadetes">-</td><td id="v-gae">-</td><td id="v-crp">-</td><td id="v-total">-</td></tr>
             </table>
-            <a id="btn-pdf" class="main-menu-btn"style="background:#c5a059; color:#000; margin-top:15px; display:flex; justify-content:center; align-items:center; gap:10px;" href="" download>Elementos Asignados ↓</a>
+            <a id="btn-pdf" class="main-menu-btn"style="background:#c5a059; color:#000; margin-top:15px; display:flex; justify-content:center; align-items:center; gap:10px;"href="#" target="_blank"> Elementos Asignados ↓</a
             <a href="#" class="back-btn" onclick="showScreen('deployment-screen')">Regresar a Zonas</a>
         </div>
     </div>
@@ -125,16 +125,16 @@
     m.src = el.getAttribute('data-map');
     m.style.display = 'block';
     
-    // AQUÍ ESTÁ EL TRUCO PARA EL PDF
+    // Configurar botón PDF
     let btn = document.getElementById('btn-pdf');
     let rutaPdf = el.getAttribute('data-pdf');
     
-    // Forzamos el atributo download y asignamos la ruta correctamente
-    btn.setAttribute('href', rutaPdf);
-    btn.setAttribute('download', rutaPdf); 
+    btn.href = rutaPdf;
+    // Eliminamos explícitamente cualquier atributo download que pudiera quedar
+    btn.removeAttribute('download'); 
     
     showScreen('detail-screen');
-    }
+}
 </script>
 </body>
 </html>
