@@ -95,23 +95,48 @@
             <img id="zone-map" src="" style="width:100%; border-radius:5px; display:none;">
             <div id="zone-title" style="font-weight:bold; color:#c5a059; margin-top:10px;"></div>
             <div style="font-size:11px; margin-top:5px;">Mando: <strong id="v-mando-name"></strong></div>
+            
+            <h3 style="color:#c5a059; font-size: 12px; margin-top: 15px;">Elementos Asignados:</h3>
+            <ul id="lista-elementos" style="list-style: none; font-size: 11px; max-height: 120px; overflow-y: auto; background: #000; padding: 10px; border-radius: 5px;"></ul>
             <table class="details-table">
                 <tr><th>Mando</th><th>FC</th><th>Cadetes</th><th>GAE</th><th>CRP</th><th>Total</th></tr>
                 <tr><td id="v-mando">-</td><td id="v-fc">-</td><td id="v-cadetes">-</td><td id="v-gae">-</td><td id="v-crp">-</td><td id="v-total">-</td></tr>
             </table>
-            <a id="btn-pdf" class="main-menu-btn"style="background:#c5a059; color:#000; margin-top:15px; display:flex; justify-content:center; align-items:center; gap:10px;" href="" download>Elementos Asignados ↓</a>
+            
+            <a id="btn-pdf" class="main-menu-btn"style="background:#c5a059; color:#000; margin-top:15px; display:flex; justify-content:center; align-items:center; gap:10px;" href="" target="_blank">Elementos Asignados ↓</a>
+            
             <a href="#" class="back-btn" onclick="showScreen('deployment-screen')">Regresar a Zonas</a>
         </div>
     </div>
 </div>
 
     <script>
+        // BASE DE DATOS DE PERSONAL
+    const datosPersonal = {
+        "CENTRO_DE_MANDO.pdf": ["J. RUIZ FELIX", "JORGE PELLEGRIN", "MARIO APARICIO", "DAVID LOZANO"],
+        "UCM.pdf": ["FIDEL DIAZ RUIZ", "RAMIREZ NICOLAS GELACIO", "RAMIREZ RODRIGUEZ LESLIE ALESSANDRA", "RODRIGUEZ BAEZ LUIS GERARDO"],
+        "TECNOLOGIA.pdf": ["BENJAMÍN LÓPEZ"],
+        "ESCENARIO.pdf": ["AGUSTIN RONQUILLO JOSE ARMANDO", "ALONSO MARTINEZ ANA MARIA DENIS", "ANAYA NICANDRO JOSE FERNANDO", "BARRIOS MONZON ANGEL ULISES", "BAUTISTA HERNANDEZ JOSE ALBERTO", "BAUTISTA HERNANDEZ SANDRA", "CAMPOS ZERMEÑO MAYRA PATRICIA", "CASTRO HERNANDEZ CESAR", "CAVAZOS RIOS KEVIN ALBERTO", "CORDOVA DE LA CRUZ RODRIGO"],
+        "CAMERINOS.pdf": ["LUIS GARCIA"],
+        "VIP.pdf": ["SOFIA ROBLES"],
+        "PREFERENCIAL.pdf": ["JUAN SANTA CRUZ"],
+        "GENERAL.pdf": ["LILIANA RAMOS", "JESÚS AGUILAR"],
+        "PERIMETRAL_NORTE.pdf": ["ENRIQUE GALVÁN", "CINDY RODRÍGUEZ"],
+        "PERIMETRAL_SUR.pdf": ["JENNY MORAN", "BRAYAN LÓPEZ"],
+        "acceso_4.pdf": ["JORGE CARRILLO"],
+        "acceso_pista.pdf": ["MAURICIO MOLINA"],
+        "acceso_3.pdf": ["JUAN CARLOS DÍAZ"],
+        "periferia.pdf": ["HUGO SÁNCHEZ"],
+        "acceso_5.pdf": ["JAIME ORTIZ"],
+        "binomios_santa_lucia.pdf": ["AARON TREJO", "MARIA DEL SOCORRO LOPEZ RODRIGUEZ", "ANABEL PARRA PEREZ", "PATRICIA ARROYO CASTILLO", "JACQUELINE CORTES DIMAS", "MARIA DE LOS ANGELES LLANAS GARCIA", "MARTIN MARTINEZ MIRANDA", "JUAN BALTAZAR HERNÁNDEZ", "JESUS MARIA PEREZ TORRES"]
+    };
     function showScreen(id) { 
         document.querySelectorAll('.screen').forEach(s => s.classList.remove('active')); 
         document.getElementById(id).classList.add('active'); 
         window.scrollTo(0,0); 
     }
     function showDetail(el) {
+    // TUS FUNCIONES ORIGINALES INTACTAS
     document.getElementById('zone-title').innerText = el.getAttribute('data-name');
     document.getElementById('v-mando-name').innerText = el.getAttribute('data-mando-name');
     document.getElementById('v-mando').innerText = el.getAttribute('data-mando');
@@ -129,12 +154,23 @@
     let btn = document.getElementById('btn-pdf');
     let rutaPdf = el.getAttribute('data-pdf');
     
-    // Forzamos el atributo download y asignamos la ruta correctamente
+    // EL CAMBIO PARA ABRIR DIRECTO: Asignamos el href y EVITAMOS forzar la descarga
     btn.setAttribute('href', rutaPdf);
-    btn.setAttribute('download', rutaPdf); 
+    btn.removeAttribute('download'); // <-- Esta es la única línea tuya que cambié
+    
+    // LO NUEVO: LA VISTA PREVIA INYECTADA AL FINAL
+    let lista = document.getElementById('lista-elementos');
+    lista.innerHTML = ""; // Limpiamos la lista al entrar
+    if (datosPersonal[rutaPdf]) {
+        datosPersonal[rutaPdf].forEach(nombre => {
+            let li = document.createElement('li');
+            li.innerText = "• " + nombre;
+            lista.appendChild(li);
+        });
+    }
     
     showScreen('detail-screen');
-    }
+}
 </script>
 </body>
 </html>
