@@ -92,18 +92,22 @@
     </div>
 
     <div id="detail-screen" class="screen">
-        <div class="detail-card">
-            <img id="zone-map" src="" style="width:100%; border-radius:5px; display:none;">
-            <div id="zone-title" style="font-weight:bold; color:#c5a059; margin-top:10px;"></div>
-            <div style="font-size:11px; margin-top:5px;">Mando: <strong id="v-mando-name"></strong></div>
-            <table class="details-table">
-                <tr><th>Mando</th><th>FC</th><th>Cadetes</th><th>GAE</th><th>CRP</th><th>Total</th></tr>
-                <tr><td id="v-mando">-</td><td id="v-fc">-</td><td id="v-cadetes">-</td><td id="v-gae">-</td><td id="v-crp">-</td><td id="v-total">-</td></tr>
-            </table>
-            <a href="#" id="btn-pdf" class="main-menu-btn" style="background:#c5a059; color:#000; margin-top:15px;" download>Descargar Listado PDF</a>
-            <a href="#" class="back-btn" onclick="showScreen('deployment-screen')">Regresar a Zonas</a>
-        </div>
+    <div class="detail-card">
+        <img id="zone-map" src="" style="width:100%; border-radius:5px; display:none;">
+        <div id="zone-title" style="font-weight:bold; color:#c5a059; margin-top:10px;"></div>
+        <div style="font-size:11px; margin-top:5px;">Mando: <strong id="v-mando-name"></strong></div>
+        <table class="details-table">
+            <tr><th>Mando</th><th>FC</th><th>Cadetes</th><th>GAE</th><th>CRP</th><th>Total</th></tr>
+            <tr><td id="v-mando">-</td><td id="v-fc">-</td><td id="v-cadetes">-</td><td id="v-gae">-</td><td id="v-crp">-</td><td id="v-total">-</td></tr>
+        </table>
+        
+        <a href="#" id="btn-pdf" class="main-menu-btn" style="background:#c5a059; color:#000; margin-top:15px; display:flex; justify-content:center; align-items:center; gap:10px;" download>
+            Elementos Asignados ↓
+        </a>
+        
+        <a href="#" class="back-btn" onclick="showScreen('deployment-screen')">Regresar a Zonas</a>
     </div>
+</div>
 </div>
 
 <script>
@@ -126,6 +130,12 @@
         m.style.display = 'block';
         let btn = document.getElementById('btn-pdf');
         btn.href = el.getAttribute('data-pdf');
+        if (pdfName) {
+            btn.href = pdfName;
+            btn.style.display = 'flex'; // Asegura que se vea
+        } else {
+            btn.style.display = 'none'; // Si no hay PDF, ocultar botón
+        }
         showScreen('detail-screen');
     }
 </script>
