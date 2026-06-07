@@ -131,20 +131,36 @@
 </div>
 
 <script>
+    // Función para cambiar de pantalla
+    function showScreen(screenId) {
+        document.querySelectorAll('.screen').forEach(function(el) {
+            el.classList.remove('active');
+        });
+        document.getElementById(screenId).classList.add('active');
+        window.scrollTo(0, 0);
+    }
+
+    // Función para mostrar detalles de zona
     function showDetail(el) {
-    document.getElementById('zone-title').innerText = el.getAttribute('data-name');
-    document.getElementById('v-mando-name').innerText = el.getAttribute('data-mando-name');
-    document.getElementById('v-mando').innerText = el.getAttribute('data-mando');
-    document.getElementById('v-fc').innerText = el.getAttribute('data-fc');
-    document.getElementById('v-cadetes').innerText = el.getAttribute('data-cadetes');
-    document.getElementById('v-gae').innerText = el.getAttribute('data-gae');
-    document.getElementById('v-crp').innerText = el.getAttribute('data-crp');
-    document.getElementById('v-total').innerText = el.getAttribute('data-total');
-    let m = document.getElementById('zone-map');
-    m.src = el.getAttribute('data-map');
-    m.style.display = 'block';
-    showScreen('detail-screen');
-}
+        document.getElementById('zone-title').innerText = el.getAttribute('data-name');
+        // Asegúrate de que el elemento exista en tu HTML o la función fallará
+        var mandoName = document.getElementById('v-mando-name');
+        if(mandoName) mandoName.innerText = el.getAttribute('data-mando-name') || '-';
+
+        document.getElementById('v-mando').innerText = el.getAttribute('data-mando') || '0';
+        document.getElementById('v-fc').innerText = el.getAttribute('data-fc') || '0';
+        document.getElementById('v-cadetes').innerText = el.getAttribute('data-cadetes') || '0';
+        document.getElementById('v-gae').innerText = el.getAttribute('data-gae') || '0';
+        document.getElementById('v-crp').innerText = el.getAttribute('data-crp') || '0';
+        document.getElementById('v-total').innerText = el.getAttribute('data-total') || '0';
+        
+        let m = document.getElementById('zone-map');
+        if(m) {
+            m.src = el.getAttribute('data-map');
+            m.style.display = 'block';
+        }
+        showScreen('detail-screen');
+    }
 </script>
 </body>
 </html>
